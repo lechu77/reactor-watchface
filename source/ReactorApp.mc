@@ -12,6 +12,11 @@ class ReactorApp extends Application.AppBase {
     function onStart(state as Dictionary?) as Void {
     }
 
+    // New settings have been received so trigger a UI update
+    function onSettingsChanged() as Void {
+        WatchUi.requestUpdate();
+    }
+
     // onStop() is called when your application is exiting
     function onStop(state as Dictionary?) as Void {
     }

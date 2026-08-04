@@ -5,6 +5,9 @@ gen/
 *.der
 .DS_Store
 .vscode/
+
+# Internal dev docs (not for public repo)
 CONTEXT.md
 MEMORY.md
-README.md
+AGENTS.md
+implementation_plan.md

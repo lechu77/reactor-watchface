@@ -73,7 +73,7 @@ class TimeWidget {
         
         // Draw 7-Segment Day Number "04" centered inside Window 2 in same cyan as clock
         var numX = win2X + (winW / 2) - 12; // 215
-        if (theme.digitStyle == 1) {
+        if (theme.currentStyle == Theme.THEME_NIXIE_CYAN) {
             if (_vfdSmallDrawables == null) {
                 _vfdSmallDrawables = new [10] as Array<Toybox.WatchUi.BitmapResource>;
                 _vfdSmallDrawables[0] = Application.loadResource(Rez.Drawables.VfdSmall0) as Toybox.WatchUi.BitmapResource;
@@ -119,7 +119,7 @@ class TimeWidget {
 
         var lowerCenterY = sepY + 2 + ((frameY + frameHeight - sepY - 2) / 2); // 224
 
-        if (theme.digitStyle == 1) {
+        if (theme.currentStyle == Theme.THEME_NIXIE_CYAN) {
             if (_vfdDrawables == null) {
                 _vfdDrawables = new [11] as Array<Toybox.WatchUi.BitmapResource>;
                 _vfdDrawables[0] = Application.loadResource(Rez.Drawables.Vfd0) as Toybox.WatchUi.BitmapResource;

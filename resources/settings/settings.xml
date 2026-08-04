@@ -1,9 +1,13 @@
 <settings>
     <!-- Theme Settings -->
-    <setting propertyKey="@Properties.digitStyle" title="@Strings.setting_digit_style">
+    <setting propertyKey="@Properties.themeStyle" title="@Strings.setting_theme_style">
         <settingConfig type="list">
-            <listEntry value="0">@Strings.style_solid</listEntry>
-            <listEntry value="1">@Strings.style_tube</listEntry>
+            <listEntry value="0">@Strings.theme_nixie_cyan</listEntry>
+            <listEntry value="1">@Strings.theme_lcd_cyan</listEntry>
+            <listEntry value="2">@Strings.theme_lcd_green</listEntry>
+            <listEntry value="3">@Strings.theme_lcd_amber</listEntry>
+            <listEntry value="4">@Strings.theme_lcd_white</listEntry>
+            <listEntry value="5">@Strings.theme_lcd_siemens</listEntry>
         </settingConfig>
     </setting>
     

@@ -10,6 +10,6 @@
     <property id="rightFlankSlot" type="number">5</property>
 
     <!-- Style Settings -->
-    <property id="digitStyle" type="number">1</property>
+    <property id="themeStyle" type="number">0</property>
     <property id="showTopBattery" type="boolean">true</property>
 </properties>

@@ -12,16 +12,17 @@ module Theme {
 
     // Clock Frame & Background Styles
     enum Style {
-        STYLE_NIXIE_CYAN,
-        STYLE_LCD_STN,
-        STYLE_LCD_GREEN,
-        STYLE_LCD_GRAY
+        THEME_NIXIE_CYAN = 0,
+        THEME_LCD_CYAN = 1,
+        THEME_LCD_GREEN = 2,
+        THEME_LCD_AMBER = 3,
+        THEME_LCD_WHITE = 4,
+        THEME_LCD_SIEMENS = 5
     }
 
     class ThemeConfig {
-        public var currentStyle as Style = STYLE_NIXIE_CYAN;
+        public var currentStyle as Style = THEME_NIXIE_CYAN;
         public var isAod as Boolean = false;
-        public var digitStyle as Number = 0; // 0 = Solid, 1 = Tube
         public var showTopBattery as Boolean = true;
         public var leftFlankSlot as Number = 4; // HeartRate
         public var rightFlankSlot as Number = 5; // Stress
@@ -32,9 +33,9 @@ module Theme {
 
         function loadProperties() as Void {
             if (Toybox.Application has :Properties) {
-                var dStyle = Toybox.Application.Properties.getValue("digitStyle");
-                if (dStyle != null) {
-                    digitStyle = dStyle as Number;
+                var tColor = Toybox.Application.Properties.getValue("themeStyle");
+                if (tColor != null) {
+                    currentStyle = tColor as Style;
                 }
                 var sTopBatt = Toybox.Application.Properties.getValue("showTopBattery");
                 if (sTopBatt != null) {
@@ -53,25 +54,22 @@ module Theme {
 
         function getPrimaryColor() as Number {
             switch (currentStyle) {
-                case STYLE_LCD_GREEN:
-                    return 0x80E263;
-                case STYLE_LCD_GRAY:
-                    return 0xD4D4D4;
-                case STYLE_NIXIE_CYAN:
-                case STYLE_LCD_STN:
+                case THEME_LCD_GREEN:
+                    return 0x43E038;
+                case THEME_LCD_AMBER:
+                    return 0xFFB000;
+                case THEME_LCD_WHITE:
+                    return 0xFFFFFF;
+                case THEME_LCD_SIEMENS:
+                    return 0x00A3A3;
+                case THEME_LCD_CYAN:
+                case THEME_NIXIE_CYAN:
                 default:
                     return COLOR_LCD_CYAN;
             }
         }
 
         function getBackgroundColor() as Number {
-            if (currentStyle == STYLE_LCD_STN) {
-                return 0x103233;
-            } else if (currentStyle == STYLE_LCD_GREEN) {
-                return 0x1A2C16;
-            } else if (currentStyle == STYLE_LCD_GRAY) {
-                return 0x22262E;
-            }
             return COLOR_BG;
         }
 
