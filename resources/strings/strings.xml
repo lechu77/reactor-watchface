@@ -1,0 +1,61 @@
+<resources>
+    <string id="AppName">REACTOR</string>
+
+    <!-- Theme Settings -->
+    <string id="setting_digit_style">Estilo de Digitos</string>
+    <string id="setting_show_top_battery">Mostrar Batería Superior</string>
+    <string id="style_solid">Solido (LCD)</string>
+    <string id="style_tube">Neon (VFD Tube)</string>
+
+    <!-- Bottom slot picker option labels -->
+    <!-- Tiempo -->
+    <string id="metric_time">Tiempo</string>
+    <string id="metric_date">Fecha</string>
+
+    <!-- Actividad -->
+    <string id="metric_steps">Pasos</string>
+    <string id="metric_distance">Distancia</string>
+    <string id="metric_calories">Calorias</string>
+    <string id="metric_floors">Pisos</string>
+    <string id="metric_intensity_minutes">Min. Intensidad</string>
+
+    <!-- Salud -->
+    <string id="metric_heartrate">Frec. Cardiaca</string>
+    <string id="metric_stress">Estres</string>
+    <string id="metric_body_battery">Body Battery</string>
+    <string id="metric_hrv">Estado VFC</string>
+    <string id="metric_resting_hr">FC Reposo</string>
+    <string id="metric_pulse_ox">Pulse Ox</string>
+
+    <!-- Entrenamiento -->
+    <string id="metric_training_readiness">Pred. Entreno</string>
+    <string id="metric_recovery_time">Tiempo Recup.</string>
+    <string id="metric_vo2_max">VO2 Max</string>
+    <string id="metric_training_status">Estado Entreno</string>
+    <string id="metric_acute_load">Carga Aguda</string>
+    <string id="metric_endurance_score">Puntaje Resist.</string>
+    <string id="metric_hill_score">Puntaje Pend.</string>
+
+    <string id="flank_left_label">Barra Izquierda</string>
+    <string id="flank_right_label">Barra Derecha</string>
+
+    <!-- Outdoor -->
+    <string id="metric_altitude">Altitud</string>
+    <string id="metric_temperature">Temperatura</string>
+    <string id="metric_weather">Clima</string>
+    <string id="metric_sunrise">Amanecer</string>
+    <string id="metric_sunset">Atardecer</string>
+    <string id="metric_moon_phase">Fase Lunar</string>
+
+    <!-- Dispositivo -->
+    <string id="metric_battery">Bateria Reloj</string>
+    <string id="metric_phone_battery">Bateria Tel.</string>
+    <string id="metric_bluetooth">Bluetooth</string>
+    <string id="metric_seconds">Segundos</string>
+
+    <!-- Slot labels -->
+    <string id="slot1_label">Metrica Slot 1</string>
+    <string id="slot2_label">Metrica Slot 2</string>
+    <string id="slot3_label">Metrica Slot 3</string>
+    <string id="slot4_label">Metrica Slot 4</string>
+</resources>

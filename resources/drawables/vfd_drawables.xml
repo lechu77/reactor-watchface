@@ -1,0 +1,13 @@
+<drawables>
+    <bitmap id="Vfd0" filename="vfd/vfd_0.png" />
+    <bitmap id="Vfd1" filename="vfd/vfd_1.png" />
+    <bitmap id="Vfd2" filename="vfd/vfd_2.png" />
+    <bitmap id="Vfd3" filename="vfd/vfd_3.png" />
+    <bitmap id="Vfd4" filename="vfd/vfd_4.png" />
+    <bitmap id="Vfd5" filename="vfd/vfd_5.png" />
+    <bitmap id="Vfd6" filename="vfd/vfd_6.png" />
+    <bitmap id="Vfd7" filename="vfd/vfd_7.png" />
+    <bitmap id="Vfd8" filename="vfd/vfd_8.png" />
+    <bitmap id="Vfd9" filename="vfd/vfd_9.png" />
+    <bitmap id="VfdColon" filename="vfd/vfd_colon.png" />
+</drawables>

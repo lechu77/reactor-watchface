@@ -1,0 +1,12 @@
+<drawables>
+    <bitmap id="VfdSmall0" filename="vfd_small/vfd_small_0.png" />
+    <bitmap id="VfdSmall1" filename="vfd_small/vfd_small_1.png" />
+    <bitmap id="VfdSmall2" filename="vfd_small/vfd_small_2.png" />
+    <bitmap id="VfdSmall3" filename="vfd_small/vfd_small_3.png" />
+    <bitmap id="VfdSmall4" filename="vfd_small/vfd_small_4.png" />
+    <bitmap id="VfdSmall5" filename="vfd_small/vfd_small_5.png" />
+    <bitmap id="VfdSmall6" filename="vfd_small/vfd_small_6.png" />
+    <bitmap id="VfdSmall7" filename="vfd_small/vfd_small_7.png" />
+    <bitmap id="VfdSmall8" filename="vfd_small/vfd_small_8.png" />
+    <bitmap id="VfdSmall9" filename="vfd_small/vfd_small_9.png" />
+</drawables>

@@ -1,0 +1,34 @@
+<resources>
+    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="IconSteps"     filename="icon_steps.png" />
+    <bitmap id="IconDistance"  filename="icon_distance.png" />
+    <bitmap id="IconCalories"  filename="icon_calories.png" />
+    <bitmap id="IconFloors"    filename="icon_floors.png" />
+    <bitmap id="IconHeartRate" filename="icon_heartrate.png" />
+    <bitmap id="IconStress"    filename="icon_stress.png" />
+    <bitmap id="IconBattery"   filename="icon_battery.png" />
+    <bitmap id="IconHeaderBattery" filename="icon_header_battery.png" />
+    <bitmap id="IconSeconds"   filename="icon_seconds.png" />
+    <bitmap id="IconTime"      filename="icon_time.png" />
+    <bitmap id="IconDate"      filename="icon_date.png" />
+    <bitmap id="IconBodyBattery" filename="icon_body_battery.png" />
+    <bitmap id="IconHRV" filename="icon_hrv.png" />
+    <bitmap id="IconRestingHR" filename="icon_resting_hr.png" />
+    <bitmap id="IconPulseOx" filename="icon_pulse_ox.png" />
+    <bitmap id="IconTrainingReadiness" filename="icon_training_readiness.png" />
+    <bitmap id="IconRecoveryTime" filename="icon_recovery_time.png" />
+    <bitmap id="IconVO2Max" filename="icon_vo2_max.png" />
+    <bitmap id="IconTrainingStatus" filename="icon_training_status.png" />
+    <bitmap id="IconAcuteLoad" filename="icon_acute_load.png" />
+    <bitmap id="IconEnduranceScore" filename="icon_endurance_score.png" />
+    <bitmap id="IconHillScore" filename="icon_hill_score.png" />
+    <bitmap id="IconIntensityMinutes" filename="icon_intensity_minutes.png" />
+    <bitmap id="IconAltitude" filename="icon_altitude.png" />
+    <bitmap id="IconTemperature" filename="icon_temperature.png" />
+    <bitmap id="IconWeather" filename="icon_weather.png" />
+    <bitmap id="IconSunrise" filename="icon_sunrise.png" />
+    <bitmap id="IconSunset" filename="icon_sunset.png" />
+    <bitmap id="IconMoonPhase" filename="icon_moon_phase.png" />
+    <bitmap id="IconPhoneBattery" filename="icon_phone_battery.png" />
+    <bitmap id="IconBluetooth" filename="icon_bluetooth.png" />
+</resources>

@@ -1,0 +1,10 @@
+bin/
+gen/
+*.prg
+*.iq
+*.der
+.DS_Store
+.vscode/
+CONTEXT.md
+MEMORY.md
+README.md

@@ -1,0 +1,15 @@
+<properties>
+    <!-- Bottom metrics slots: 0=Steps 1=Distance 2=Calories 3=Floors 4=HeartRate 5=Stress 6=Battery 7=Seconds -->
+    <property id="bottomSlot1" type="number">0</property>
+    <property id="bottomSlot2" type="number">1</property>
+    <property id="bottomSlot3" type="number">2</property>
+    <property id="bottomSlot4" type="number">3</property>
+
+    <!-- Side metrics slots -->
+    <property id="leftFlankSlot" type="number">4</property>
+    <property id="rightFlankSlot" type="number">5</property>
+
+    <!-- Style Settings -->
+    <property id="digitStyle" type="number">1</property>
+    <property id="showTopBattery" type="boolean">true</property>
+</properties>

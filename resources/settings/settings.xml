@@ -1,0 +1,185 @@
+<settings>
+    <!-- Theme Settings -->
+    <setting propertyKey="@Properties.digitStyle" title="@Strings.setting_digit_style">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.style_solid</listEntry>
+            <listEntry value="1">@Strings.style_tube</listEntry>
+        </settingConfig>
+    </setting>
+    
+    <!-- Top Widget Settings -->
+    <setting propertyKey="@Properties.showTopBattery" title="@Strings.setting_show_top_battery">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <!-- Side Flanks -->
+    <setting propertyKey="@Properties.leftFlankSlot" title="@Strings.flank_left_label">
+        <settingConfig type="list">
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.rightFlankSlot" title="@Strings.flank_right_label">
+        <settingConfig type="list">
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Slot 1 -->
+    <setting propertyKey="@Properties.bottomSlot1" title="@Strings.slot1_label">
+        <settingConfig type="list">
+            <listEntry value="8">@Strings.metric_time</listEntry>
+            <listEntry value="9">@Strings.metric_date</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="1">@Strings.metric_distance</listEntry>
+            <listEntry value="2">@Strings.metric_calories</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="12">@Strings.metric_resting_hr</listEntry>
+            <listEntry value="11">@Strings.metric_hrv</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="14">@Strings.metric_training_readiness</listEntry>
+            <listEntry value="17">@Strings.metric_training_status</listEntry>
+            <listEntry value="15">@Strings.metric_recovery_time</listEntry>
+            <listEntry value="18">@Strings.metric_acute_load</listEntry>
+            <listEntry value="16">@Strings.metric_vo2_max</listEntry>
+            <listEntry value="19">@Strings.metric_endurance_score</listEntry>
+            <listEntry value="20">@Strings.metric_hill_score</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="24">@Strings.metric_weather</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="25">@Strings.metric_sunrise</listEntry>
+            <listEntry value="26">@Strings.metric_sunset</listEntry>
+            <listEntry value="27">@Strings.metric_moon_phase</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+            <listEntry value="29">@Strings.metric_bluetooth</listEntry>
+            <listEntry value="7">@Strings.metric_seconds</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Slot 2 -->
+    <setting propertyKey="@Properties.bottomSlot2" title="@Strings.slot2_label">
+        <settingConfig type="list">
+            <listEntry value="8">@Strings.metric_time</listEntry>
+            <listEntry value="9">@Strings.metric_date</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="1">@Strings.metric_distance</listEntry>
+            <listEntry value="2">@Strings.metric_calories</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="12">@Strings.metric_resting_hr</listEntry>
+            <listEntry value="11">@Strings.metric_hrv</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="14">@Strings.metric_training_readiness</listEntry>
+            <listEntry value="17">@Strings.metric_training_status</listEntry>
+            <listEntry value="15">@Strings.metric_recovery_time</listEntry>
+            <listEntry value="18">@Strings.metric_acute_load</listEntry>
+            <listEntry value="16">@Strings.metric_vo2_max</listEntry>
+            <listEntry value="19">@Strings.metric_endurance_score</listEntry>
+            <listEntry value="20">@Strings.metric_hill_score</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="24">@Strings.metric_weather</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="25">@Strings.metric_sunrise</listEntry>
+            <listEntry value="26">@Strings.metric_sunset</listEntry>
+            <listEntry value="27">@Strings.metric_moon_phase</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+            <listEntry value="29">@Strings.metric_bluetooth</listEntry>
+            <listEntry value="7">@Strings.metric_seconds</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Slot 3 -->
+    <setting propertyKey="@Properties.bottomSlot3" title="@Strings.slot3_label">
+        <settingConfig type="list">
+            <listEntry value="8">@Strings.metric_time</listEntry>
+            <listEntry value="9">@Strings.metric_date</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="1">@Strings.metric_distance</listEntry>
+            <listEntry value="2">@Strings.metric_calories</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="12">@Strings.metric_resting_hr</listEntry>
+            <listEntry value="11">@Strings.metric_hrv</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="14">@Strings.metric_training_readiness</listEntry>
+            <listEntry value="17">@Strings.metric_training_status</listEntry>
+            <listEntry value="15">@Strings.metric_recovery_time</listEntry>
+            <listEntry value="18">@Strings.metric_acute_load</listEntry>
+            <listEntry value="16">@Strings.metric_vo2_max</listEntry>
+            <listEntry value="19">@Strings.metric_endurance_score</listEntry>
+            <listEntry value="20">@Strings.metric_hill_score</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="24">@Strings.metric_weather</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="25">@Strings.metric_sunrise</listEntry>
+            <listEntry value="26">@Strings.metric_sunset</listEntry>
+            <listEntry value="27">@Strings.metric_moon_phase</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+            <listEntry value="29">@Strings.metric_bluetooth</listEntry>
+            <listEntry value="7">@Strings.metric_seconds</listEntry>
+        </settingConfig>
+    </setting>
+
+    <!-- Slot 4 -->
+    <setting propertyKey="@Properties.bottomSlot4" title="@Strings.slot4_label">
+        <settingConfig type="list">
+            <listEntry value="8">@Strings.metric_time</listEntry>
+            <listEntry value="9">@Strings.metric_date</listEntry>
+            <listEntry value="0">@Strings.metric_steps</listEntry>
+            <listEntry value="1">@Strings.metric_distance</listEntry>
+            <listEntry value="2">@Strings.metric_calories</listEntry>
+            <listEntry value="3">@Strings.metric_floors</listEntry>
+            <listEntry value="21">@Strings.metric_intensity_minutes</listEntry>
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="12">@Strings.metric_resting_hr</listEntry>
+            <listEntry value="11">@Strings.metric_hrv</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="14">@Strings.metric_training_readiness</listEntry>
+            <listEntry value="17">@Strings.metric_training_status</listEntry>
+            <listEntry value="15">@Strings.metric_recovery_time</listEntry>
+            <listEntry value="18">@Strings.metric_acute_load</listEntry>
+            <listEntry value="16">@Strings.metric_vo2_max</listEntry>
+            <listEntry value="19">@Strings.metric_endurance_score</listEntry>
+            <listEntry value="20">@Strings.metric_hill_score</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="24">@Strings.metric_weather</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="25">@Strings.metric_sunrise</listEntry>
+            <listEntry value="26">@Strings.metric_sunset</listEntry>
+            <listEntry value="27">@Strings.metric_moon_phase</listEntry>
+            <listEntry value="6">@Strings.metric_battery</listEntry>
+            <listEntry value="28">@Strings.metric_phone_battery</listEntry>
+            <listEntry value="29">@Strings.metric_bluetooth</listEntry>
+            <listEntry value="7">@Strings.metric_seconds</listEntry>
+        </settingConfig>
+    </setting>
+</settings>
