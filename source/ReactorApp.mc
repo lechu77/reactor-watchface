@@ -26,6 +26,11 @@ class ReactorApp extends Application.AppBase {
         return [ new ReactorView() ];
     }
 
+    // On-device settings: shows "Customize" in the watch face long-press menu
+    function getSettingsView() as [Views] or [Views, WatchUi.InputDelegates] or Null {
+        return [ new ReactorSettingsMenu(), new ReactorSettingsDelegate() ];
+    }
+
 }
 
 function getApp() as ReactorApp {
