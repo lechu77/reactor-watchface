@@ -84,30 +84,40 @@ Example: `./scripts/set_theme.sh 3` switches to Ámbar, recompiles, and relaunch
 
 ### Option A: Sideload via USB (Development)
 
-1. Connect your watch to your computer via USB.
-2. The watch mounts as a USB drive.
-3. Build the `.prg` file:
+Note: Recent macOS versions (including macOS 26) do not mount MTP devices as regular filesystems under `/Volumes`. Use a dedicated MTP tool (for example OpenMTP) to transfer the `.prg` file if your watch doesn't appear in Finder.
+
+1. Build the `.prg` file:
    ```bash
    ./scripts/build.sh
    ```
-4. Copy the binary to the watch:
-   ```bash
-   cp bin/reactor.prg /Volumes/GARMIN/GARMIN/APPS/
-   ```
-   > On some devices the volume name might be `PRIMARY` or `FENIX8`. Check Finder.
-5. Safely eject the watch from Finder.
-6. On the watch, go to **Settings → Watch Face** and select **REACTOR**.
+2. Transfer the binary to the watch using one of these methods:
+   - If the device mounts as a mass-storage volume (older models / Windows): copy to the device `GARMIN/APPS/` folder, e.g.
+    ```bash
+    cp bin/reactor.prg /Volumes/<DEVICE_NAME>/GARMIN/APPS/
+    ```
+   - If macOS does not mount it (macOS 26+), use OpenMTP (or another MTP client) to copy `bin/reactor.prg` into the watch filesystem (place in the APPS or GARMIN/APPS folder as shown by the client).
+
+3. Safely disconnect (use the app's disconnect or eject the device) and unplug the cable.
+4. On the watch: Settings → Watch Face → select **REACTOR**.
+
+If the watch face does not appear after copying:
+- Restart the watch and re-check the APPS folder with your MTP client.
+- Verify that the file you copied is `bin/reactor.prg` (not `reactor.iq`).
 
 ### Option B: Connect IQ Store (Distribution)
 
 1. Create a developer account at [developer.garmin.com](https://developer.garmin.com).
-2. Package the app:
+2. Package the app (release .iq signed with your developer key):
    ```bash
-   # Build a release .iq package
    monkeyc -f monkey.jungle -o bin/reactor.iq -e -y developer_key.der -r
    ```
-3. Upload the `.iq` file to the [Connect IQ Store](https://apps.garmin.com/developer/dashboard).
-4. Users can then install it directly from the Garmin Connect app on their phone.
+   The signed package will be created at `bin/reactor.iq`.
+3. Upload the `.iq` file to the Connect IQ Store (Developer Dashboard) and complete the app metadata and assets.
+4. Users will be able to install the watch face from the Garmin Connect mobile app after publishing (or via a private/beta distribution if preferred).
+
+### Notes
+- For development rapid iteration, the Simulator (./scripts/sim.sh) is usually faster than sideloading to a device.
+- `bin/reactor.prg` is the sideloadable runtime binary; `bin/reactor.iq` is the signed package for Store distribution.
 
 ## Project Structure
 
