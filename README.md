@@ -8,8 +8,8 @@
 
 ## Features
 
-- **Nixie Tube Digits**: Bitmap-rendered glowing cyan tubes for the main clock display.
-- **LCD Segment Digits**: Vector-drawn 7-segment renderers as an alternative style.
+- **Nixie Tube Digits**: Bitmap-rendered glowing cyan tubes for the main clock display, featuring a simulated wire mesh, light bloom, and unlit filament background for realism.
+- **LCD Segment Digits**: Vector-drawn 7-segment renderers as an alternative solid style.
 - **6 Color Themes**: Nixie Cyan, Sólido Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
 - **Dynamic Flank Gauges**: 10-segment LED-style vertical gauges (Heart Rate, Stress, Battery, Steps, Floors, Intensity Minutes, Body Battery, Phone Battery).
 - **Dual Historical Charts**: Real-time bar charts showing Heart Rate and Body Battery trends.
@@ -147,7 +147,9 @@ reactor-watchface/
 ├── scripts/
 │   ├── build.sh               # Compile the project
 │   ├── sim.sh                 # Launch in simulator
-│   └── set_theme.sh           # Switch theme & relaunch
+│   ├── set_theme.sh           # Switch theme & relaunch (cleans cache automatically)
+│   ├── fix_svg_icons.py       # Utility to re-export SVGs to bypass OneDrive dataless lock
+│   └── process_nixie_images.py # Utility to apply mesh/bloom texture to Nixie PNGs
 ├── manifest.xml               # App manifest (devices, permissions)
 └── monkey.jungle              # Build configuration
 ```

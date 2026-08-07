@@ -6,18 +6,21 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 - **Settings persistence:** The simulator caches settings in a binary `REACTOR.SET` file under `$TMPDIR/com.garmin.connectiq/GARMIN/APPS/SETTINGS/`. Changing defaults in `properties.xml` and recompiling does NOT override the cached values. You **must** delete `REACTOR.SET` before relaunching. The `set_theme.sh` script handles this automatically.
 - **App Settings Editor:** Opening the App Settings Editor (`Cmd+P`) from a `monkeydo`-launched session shows "No settings file found". This is normal when not using VS Code's Connect IQ extension. Use `set_theme.sh` instead.
-- **Clean builds:** When changing `settings.xml`, `properties.xml`, or `drawables.xml`, always delete `bin/` and `gen/` before rebuilding to clear stale generated code.
+- **Clean builds:** When changing `settings.xml`, `properties.xml`, or `drawables.xml`, always delete `bin/` and `gen/` before rebuilding to clear stale generated code. The `set_theme.sh` script now automates this step to avoid dirty cache errors.
+- **OneDrive Dataless Files Lock:** macOS OneDrive can randomly lock `.png` files (e.g., `Operation timed out` / `Could not process image for bitmap`). To fix this, run `python scripts/fix_svg_icons.py` to cleanly regenerate the PNGs from your local SVG files.
 
 ## Layout Constraints (454×454 Fenix 8)
 
-- **Chart Y offset:** `chartTopY = 64` was specifically chosen to avoid clipping by the circular screen bezel.
+- **Chart Y offset:** `chartTopY = 44` (originally 64) was specifically chosen to avoid clipping by the circular screen bezel.
 - **Chart gap:** The 18px gap between left and right charts aligns with the battery widget centerline.
+- **Central Layout Shift:** The entire central block (`ChartWidget`, `TimeWidget`, `BottomMetricsWidget`) was shifted up by 20 pixels to better balance the watchface vertically.
+- **TimeWidget Date Size:** The text for day and month uses a height of 18 (originally 14) and fits symmetrically inside the 30px boxes by reducing vertical padding.
 - **TimeWidget separator:** The horizontal line between calendar and clock is dynamically calculated to span from the left edge of window 1 to the right edge of window 3.
 - **Flank segment logic:** Maps metric values (HR: 60–180, Stress: 0–100, etc.) into 10 discrete LED-style segments.
 
 ## Rendering Decisions
 
-- **Nixie tubes are sacred:** The VFD bitmap rendering path (`THEME_NIXIE_CYAN`) must never be modified or broken. The bitmaps in `resources/drawables/vfd/` and `resources/drawables/vfd_small/` are the original Nixie tube art.
+- **Nixie tubes are sacred:** The VFD bitmap rendering path (`THEME_NIXIE_CYAN`) must never be modified or broken. The base bitmaps in `resources/drawables/vfd/` are the original Nixie tube art, and are processed via `scripts/process_nixie_images.py` to add a wire mesh, bloom, and unlit filament background to distinguish them from the LCD vectors.
 - **SegmentRenderer for LCD:** All non-Nixie themes use the procedural `SegmentRenderer` which draws 7-segment digits using filled polygons. Zero bitmaps, resolution-independent.
 - **CompactFont:** Custom procedural font for date windows and bottom metrics. Extended to support `0-9` and `%`. Uses rectangles and lines only — no curves.
 - **Battery font:** Reverted to system `Graphics.FONT_XTINY` because custom square vector fonts looked unnatural for standalone digits.

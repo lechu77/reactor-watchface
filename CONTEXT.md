@@ -28,7 +28,7 @@ ReactorApp → ReactorView → [HeaderWidget, ChartWidget, TimeWidget, FlankWidg
 
 ### Key Design Decisions
 
-- **Two digit rendering paths:** Nixie bitmaps (`Theme.THEME_NIXIE_CYAN`) vs. SegmentRenderer LCD segments (all other themes).
+- **Two digit rendering paths:** Nixie bitmaps (`Theme.THEME_NIXIE_CYAN`) with simulated wire mesh and glow vs. SegmentRenderer LCD segments (all other themes).
 - **Theme colors apply to:** TimeWidget digits + ChartWidget bars. Header, flanks, and bottom metrics stay fixed to maintain visual identity.
 - **Zero allocations in draw loop:** All bitmaps and resources are cached on first load. Renderers reuse primitives instead of creating new objects.
 - **Single theme setting:** `themeStyle` (0–5) replaces the old separate `digitStyle` + `themeColor` settings.
@@ -65,7 +65,9 @@ ReactorApp → ReactorView → [HeaderWidget, ChartWidget, TimeWidget, FlankWidg
 | `resources/strings/strings.xml` | UI string labels |
 | `scripts/build.sh` | Compile project |
 | `scripts/sim.sh` | Launch simulator |
-| `scripts/set_theme.sh` | Switch theme & relaunch |
+| `scripts/set_theme.sh` | Switch theme, clean build cache & relaunch |
+| `scripts/fix_svg_icons.py` | Export SVGs to bypass OneDrive dataless lock |
+| `scripts/process_nixie_images.py` | Batch add bloom & mesh to Nixie PNGs |
 
 ---
 
