@@ -15,8 +15,8 @@ class HeaderWidget {
 
         var cx = dc.getWidth() / 2; // 227 on 454x454
         
-        // TOP: Restored to top edge
-        var battY = 10; 
+        // TOP: Centered between top edge (0) and chartTopY (44)
+        var battY = 14; 
         
         var battPercent = data.batteryPercent;
         var battPercentStr = battPercent.format("%d") + "%";

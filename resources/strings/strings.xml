@@ -62,4 +62,8 @@
     <string id="slot2_label">Metrica Slot 2</string>
     <string id="slot3_label">Metrica Slot 3</string>
     <string id="slot4_label">Metrica Slot 4</string>
+
+    <!-- Chart labels -->
+    <string id="chart_hr_label">HR</string>
+    <string id="chart_bb_label">BB</string>
 </resources>
