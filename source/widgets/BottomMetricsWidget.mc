@@ -52,6 +52,14 @@ class BottomMetricsWidget {
         drawSlot(dc, data, col2X, groupTopY, iconSize, valY, slot2);
         drawSlot(dc, data, col3X, groupTopY, iconSize, valY, slot3);
         drawSlot(dc, data, col4X, groupTopY, iconSize, valY, slot4);
+
+        if (theme.currentStyle == Theme.THEME_LCD_SIEMENS) {
+            try {
+                var logo = WatchUi.loadResource(Rez.Drawables.SiemensLogo) as WatchUi.BitmapResource;
+                // Center at X=227, Y=431 (very close to bottom edge)
+                dc.drawBitmap(227 - (logo.getWidth() / 2), 431, logo);
+            } catch (e) {}
+        }
     }
 
     private function readSlot(key as String, defaultVal as Number) as Number {

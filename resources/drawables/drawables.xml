@@ -31,4 +31,5 @@
     <bitmap id="IconMoonPhase" filename="icon_moon_phase.png" />
     <bitmap id="IconPhoneBattery" filename="icon_phone_battery.png" />
     <bitmap id="IconBluetooth" filename="icon_bluetooth.png" />
+    <bitmap id="SiemensLogo" filename="siemens_logo.png" />
 </resources>
