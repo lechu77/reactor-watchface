@@ -23,9 +23,9 @@ class BottomMetricsWidget {
 
         var height = dc.getHeight(); // 454
 
-        // Bottom zone: Y=302..438 (~136px tall)
-        var zoneTopY = 302;
-        var zoneH    = height - zoneTopY - 16;
+        // Bottom zone: Y=282..418 (~136px tall)
+        var zoneTopY = 282;
+        var zoneH    = height - zoneTopY - 36;
 
         // 4 cols in safe circular band (X 78..376 = 298px, colW=74px)
         var innerLeft = 78;
@@ -40,7 +40,7 @@ class BottomMetricsWidget {
         dc.setColor(0x506070, Graphics.COLOR_TRANSPARENT);
         // groupTopY is 339, valY is 383. Extended downwards by ~30% total.
         var sepTop = zoneTopY + 38; // 340
-        var sepBot = height - 29; // 425
+        var sepBot = height - 49; // 405
         dc.fillRectangle(innerLeft + colW - 1,     sepTop, 2, sepBot - sepTop);
         dc.fillRectangle(innerLeft + colW * 2 - 1, sepTop, 2, sepBot - sepTop);
         dc.fillRectangle(innerLeft + colW * 3 - 1, sepTop, 2, sepBot - sepTop);

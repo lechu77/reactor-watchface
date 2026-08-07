@@ -25,7 +25,7 @@ class ChartWidget {
         var gap = 18;
         
         var cx = dc.getWidth() / 2;
-        var chartTopY = 64; 
+        var chartTopY = 44;
         var chartH = 64;
         
         var primaryCol = theme.getPrimaryColor();

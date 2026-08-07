@@ -45,7 +45,10 @@ else
     echo "· No se encontró caché del simulador"
 fi
 
-# 3. Recompilar y relanzar
+# 3. Borrar bin y gen para evitar errores de compilación por caché sucia
+rm -rf "$PROJECT_ROOT/bin" "$PROJECT_ROOT/gen"
+
+# 4. Recompilar y relanzar
 echo "⟳ Recompilando..."
 "$PROJECT_ROOT/scripts/build.sh"
 echo "⟳ Lanzando simulador..."

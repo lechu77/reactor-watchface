@@ -15,7 +15,7 @@ class TimeWidget {
         var frameWidth = 324;  
         var frameHeight = 178; 
         var frameX = cx - (frameWidth / 2); // 65
-        var frameY = 138;                  // Top edge at Y=138 (Centered on Y=227)
+        var frameY = 118;                  // Top edge at Y=118
 
         var borderCol = theme.getFrameBorderColor(); // #5ED7D2 Cyan
         var primaryCol = theme.getPrimaryColor();     // #5ED7D2 Cyan
@@ -46,7 +46,7 @@ class TimeWidget {
         dc.fillRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
         dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
         dc.drawRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 8, data.dayName, 14, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 6, data.dayName, 18, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
 
         // Window 2: Center (04 Day Number in Muted 7-Segment Teal)
         var win2X = win1X + winW + winGap; // 181
@@ -105,7 +105,7 @@ class TimeWidget {
         dc.fillRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
         dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
         dc.drawRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 8, data.monthName, 14, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 6, data.monthName, 18, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
 
         // 3. HORIZONTAL SEPARATOR LINE between Date and Clock
         var sepY = dateTopY + dateWindowH + 5; // 156
