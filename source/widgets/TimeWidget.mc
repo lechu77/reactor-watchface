@@ -4,6 +4,7 @@ import Toybox.Lang;
 class TimeWidget {
     private var _vfdDrawables as Array<Toybox.WatchUi.BitmapResource>?;
     private var _vfdSmallDrawables as Array<Toybox.WatchUi.BitmapResource>?;
+    private var _nixieRealDrawables as Array<Toybox.WatchUi.BitmapResource>?;
 
     function initialize() {
     }
@@ -146,6 +147,38 @@ class TimeWidget {
             dc.drawBitmap(vfdStartX + w * 2, vfdStartY, _vfdDrawables[10]);
             dc.drawBitmap(vfdStartX + w * 3, vfdStartY, _vfdDrawables[minutes / 10]);
             dc.drawBitmap(vfdStartX + w * 4, vfdStartY, _vfdDrawables[minutes % 10]);
+        } else if (theme.currentStyle == Theme.THEME_NIXIE_AMBER) {
+            if (_nixieRealDrawables == null) {
+                _nixieRealDrawables = new [10] as Array<Toybox.WatchUi.BitmapResource>;
+                _nixieRealDrawables[0] = Application.loadResource(Rez.Drawables.NixieReal0) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[1] = Application.loadResource(Rez.Drawables.NixieReal1) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[2] = Application.loadResource(Rez.Drawables.NixieReal2) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[3] = Application.loadResource(Rez.Drawables.NixieReal3) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[4] = Application.loadResource(Rez.Drawables.NixieReal4) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[5] = Application.loadResource(Rez.Drawables.NixieReal5) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[6] = Application.loadResource(Rez.Drawables.NixieReal6) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[7] = Application.loadResource(Rez.Drawables.NixieReal7) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[8] = Application.loadResource(Rez.Drawables.NixieReal8) as Toybox.WatchUi.BitmapResource;
+                _nixieRealDrawables[9] = Application.loadResource(Rez.Drawables.NixieReal9) as Toybox.WatchUi.BitmapResource;
+            }
+            
+            var w = 72; // Image width
+            var h = 104; // Image height (cropped tighter to digit)
+            var colonW = 12; // Gap for the colon
+            var totalW = (w * 4) + colonW; // 300px total width
+            var vfdStartX = cx - (totalW / 2);
+            var vfdStartY = lowerCenterY - (h / 2);
+            
+            dc.drawBitmap(vfdStartX, vfdStartY, _nixieRealDrawables[hours / 10]);
+            dc.drawBitmap(vfdStartX + w, vfdStartY, _nixieRealDrawables[hours % 10]);
+            
+            // Draw simple Amber colon
+            dc.setColor(primaryCol, Graphics.COLOR_TRANSPARENT);
+            dc.fillCircle(vfdStartX + w*2 + (colonW/2), vfdStartY + 32, 4);
+            dc.fillCircle(vfdStartX + w*2 + (colonW/2), vfdStartY + 72, 4);
+            
+            dc.drawBitmap(vfdStartX + w*2 + colonW, vfdStartY, _nixieRealDrawables[minutes / 10]);
+            dc.drawBitmap(vfdStartX + w*3 + colonW, vfdStartY, _nixieRealDrawables[minutes % 10]);
         } else {
             var digitW = 46;
             var digitH = 92;

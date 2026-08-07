@@ -13,6 +13,7 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 - **Chart Y offset:** `chartTopY = 44` (originally 64) was specifically chosen to avoid clipping by the circular screen bezel.
 - **Chart gap:** The 18px gap between left and right charts aligns with the battery widget centerline.
+- **Header Widget:** The top battery widget is centered vertically at `Y=14`, creating a perfect balance between the top bezel edge (`Y=0`) and the top of the charts (`Y=44`).
 - **Central Layout Shift:** The entire central block (`ChartWidget`, `TimeWidget`, `BottomMetricsWidget`) was shifted up by 20 pixels to better balance the watchface vertically.
 - **TimeWidget Date Size:** The text for day and month uses a height of 18 (originally 14) and fits symmetrically inside the 30px boxes by reducing vertical padding.
 - **TimeWidget separator:** The horizontal line between calendar and clock is dynamically calculated to span from the left edge of window 1 to the right edge of window 3.
@@ -21,6 +22,7 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 ## Rendering Decisions
 
 - **Nixie tubes are sacred:** The VFD bitmap rendering path (`THEME_NIXIE_CYAN`) must never be modified or broken. The base bitmaps in `resources/drawables/vfd/` are the original Nixie tube art, and are processed via `scripts/process_nixie_images.py` to add a wire mesh, bloom, and unlit filament background to distinguish them from the LCD vectors.
+- **True Nixie Tube Mode:** Added `THEME_NIXIE_AMBER` (Theme 10) which uses a set of ultra-high-resolution Nixie digits cropped tight (120px top, 50px bottom removed before scaling) to 72x104, giving a highly authentic amber gas-discharge glow that fills the entire digit space.
 - **SegmentRenderer for LCD:** All non-Nixie themes use the procedural `SegmentRenderer` which draws 7-segment digits using filled polygons. Zero bitmaps, resolution-independent.
 - **CompactFont:** Custom procedural font for date windows and bottom metrics. Extended to support `0-9` and `%`. Uses rectangles and lines only — no curves.
 - **Battery font:** Reverted to system `Graphics.FONT_XTINY` because custom square vector fonts looked unnatural for standalone digits.
@@ -36,7 +38,7 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 - **v1:** Single hardcoded Nixie Cyan style.
 - **v2:** Added `digitStyle` (Tube vs Solid) + `themeColor` (5 colors) — two separate settings. This was confusing because you could select a color for Nixie mode (which had no effect).
-- **v3 (current):** Unified into a single `themeStyle` setting (0–5). Value 0 = Nixie bitmaps, values 1–5 = LCD segments with different colors. Clean, no invalid combinations possible.
+- **v3 (current):** Unified into a single `themeStyle` setting (0–10). Value 0 = VFD Cyan bitmaps, values 1–5 = LCD segments, value 10 = True Nixie Amber bitmaps. Clean, no invalid combinations possible.
 
 ---
 

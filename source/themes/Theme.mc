@@ -17,7 +17,8 @@ module Theme {
         THEME_LCD_GREEN = 2,
         THEME_LCD_AMBER = 3,
         THEME_LCD_WHITE = 4,
-        THEME_LCD_SIEMENS = 5
+        THEME_LCD_SIEMENS = 5,
+        THEME_NIXIE_AMBER = 10
     }
 
     class ThemeConfig {
@@ -62,6 +63,8 @@ module Theme {
                     return 0xFFFFFF;
                 case THEME_LCD_SIEMENS:
                     return 0x00A3A3;
+                case THEME_NIXIE_AMBER:
+                    return 0xFF7A00;
                 case THEME_LCD_CYAN:
                 case THEME_NIXIE_CYAN:
                 default:

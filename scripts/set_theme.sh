@@ -19,13 +19,14 @@ if [[ -z "$THEME" ]]; then
     echo "  ║  3 = Sólido (Ámbar)         ██ segment  ║"
     echo "  ║  4 = Sólido (Blanco)        ██ segment  ║"
     echo "  ║  5 = Sólido (Azul Siemens)  ██ segment  ║"
+    echo "  ║ 10 = Nixie (Ámbar)          ██ bitmap   ║"
     echo "  ╚══════════════════════════════════════════╝"
     echo ""
     exit 0
 fi
 
-if [[ "$THEME" -lt 0 || "$THEME" -gt 5 ]]; then
-    echo "Error: el tema debe ser un número entre 0 y 5."
+if [[ "$THEME" -lt 0 || "$THEME" -gt 10 ]]; then
+    echo "Error: el tema debe ser un número entre 0 y 10."
     exit 1
 fi
 

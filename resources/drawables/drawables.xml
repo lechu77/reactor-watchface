@@ -12,6 +12,19 @@
     <bitmap id="IconTime"      filename="icon_time.png" />
     <bitmap id="IconDate"      filename="icon_date.png" />
     <bitmap id="IconBodyBattery" filename="icon_body_battery.png" />
+
+    <!-- True Nixie Digits (Theme 6) -->
+    <bitmap id="NixieReal0" filename="nixie_real_0.png" />
+    <bitmap id="NixieReal1" filename="nixie_real_1.png" />
+    <bitmap id="NixieReal2" filename="nixie_real_2.png" />
+    <bitmap id="NixieReal3" filename="nixie_real_3.png" />
+    <bitmap id="NixieReal4" filename="nixie_real_4.png" />
+    <bitmap id="NixieReal5" filename="nixie_real_5.png" />
+    <bitmap id="NixieReal6" filename="nixie_real_6.png" />
+    <bitmap id="NixieReal7" filename="nixie_real_7.png" />
+    <bitmap id="NixieReal8" filename="nixie_real_8.png" />
+    <bitmap id="NixieReal9" filename="nixie_real_9.png" />
+
     <bitmap id="IconHRV" filename="icon_hrv.png" />
     <bitmap id="IconRestingHR" filename="icon_resting_hr.png" />
     <bitmap id="IconPulseOx" filename="icon_pulse_ox.png" />

@@ -8,6 +8,7 @@
             <listEntry value="3">@Strings.theme_lcd_amber</listEntry>
             <listEntry value="4">@Strings.theme_lcd_white</listEntry>
             <listEntry value="5">@Strings.theme_lcd_siemens</listEntry>
+            <listEntry value="10">@Strings.theme_nixie_amber</listEntry>
         </settingConfig>
     </setting>
     
