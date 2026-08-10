@@ -16,7 +16,7 @@
 
 - **Nixie Tube Digits**: Bitmap-rendered glowing cyan tubes for the main clock display, featuring a simulated wire mesh, light bloom, and unlit filament background for realism.
 - **LCD Segment Digits**: Vector-drawn 7-segment renderers as an alternative solid style.
-- **6 Color Themes**: Nixie Cyan, Sólido Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
+- **6 Color Themes**: Nixie Cyan, LCD Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
 - **Dynamic Flank Gauges**: 10-segment LED-style vertical gauges (Heart Rate, Stress, Battery, Steps, Floors, Intensity Minutes, Body Battery, Phone Battery).
 - **Dual Historical Charts**: Real-time bar charts showing Heart Rate and Body Battery trends.
 - **Custom Vector Typography**: `CompactFont`, an entirely procedural geometric font for date windows and metrics.
@@ -72,16 +72,16 @@ This starts the Connect IQ Simulator (if not already running) and loads the watc
 Running without arguments shows a help menu with all available themes:
 
 ```
-  ╔═════════════════════════════════════════╗
-  ║        REACTOR · Theme Switcher         ║
-  ╠═════════════════════════════════════════╣
-  ║  0 = Nixie (Cyan)           ██ bitmap   ║
-  ║  1 = Sólido (Cyan)          ██ segment  ║
-  ║  2 = Sólido (Fósforo Verde) ██ segment  ║
-  ║  3 = Sólido (Ámbar)         ██ segment  ║
-  ║  4 = Sólido (Blanco)        ██ segment  ║
-  ║  5 = Sólido (Azul Siemens)  ██ segment  ║
-  ╚═════════════════════════════════════════╝
+  ╔════════════════════════════════════════╗
+  ║        REACTOR · Theme Switcher        ║
+  ╠════════════════════════════════════════╣
+  ║  0 = VFD (Cyan)             ██ bitmap  ║
+  ║  1 = LCD (Cyan)             ██ segment ║
+  ║  2 = LCD (Fósforo Verde)    ██ segment ║
+  ║  3 = LCD (Ámbar)            ██ segment ║
+  ║  4 = LCD (Blanco)           ██ segment ║
+  ║  5 = LCD (Azul Siemens)     ██ segment ║
+  ╚════════════════════════════════════════╝
 ```
 
 Example: `./scripts/set_theme.sh 3` switches to Ámbar, recompiles, and relaunches.
