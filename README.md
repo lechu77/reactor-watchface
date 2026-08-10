@@ -72,16 +72,16 @@ This starts the Connect IQ Simulator (if not already running) and loads the watc
 Running without arguments shows a help menu with all available themes:
 
 ```
-  ╔══════════════════════════════════════════╗
-  ║        REACTOR · Theme Switcher          ║
-  ╠══════════════════════════════════════════╣
+  ╔═════════════════════════════════════════╗
+  ║        REACTOR · Theme Switcher         ║
+  ╠═════════════════════════════════════════╣
   ║  0 = Nixie (Cyan)           ██ bitmap   ║
   ║  1 = Sólido (Cyan)          ██ segment  ║
   ║  2 = Sólido (Fósforo Verde) ██ segment  ║
   ║  3 = Sólido (Ámbar)         ██ segment  ║
   ║  4 = Sólido (Blanco)        ██ segment  ║
   ║  5 = Sólido (Azul Siemens)  ██ segment  ║
-  ╚══════════════════════════════════════════╝
+  ╚═════════════════════════════════════════╝
 ```
 
 Example: `./scripts/set_theme.sh 3` switches to Ámbar, recompiles, and relaunches.
