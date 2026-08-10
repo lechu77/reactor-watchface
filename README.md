@@ -50,10 +50,10 @@ cd reactor-watchface
 ### 2. Build
 
 ```bash
-./scripts/build.sh
+./scripts/build.sh fenix8pro47mm /path/to/key.der /path/to/your/external/workspace
 ```
 
-This compiles the project using `monkeyc` from your installed SDK and outputs `reactor-watchface.prg` to your external Garmin workspace directory.
+This compiles the project using `monkeyc` from your installed SDK and outputs `reactor-watchface.prg` to the provided directory (or `bin/` by default if omitted).
 
 ### 3. Run in the Simulator
 
@@ -115,9 +115,9 @@ If the watch face does not appear after copying:
 1. Create a developer account at [developer.garmin.com](https://developer.garmin.com).
 2. Package the app (release .iq signed with your developer key) using the release script:
    ```bash
-   ./scripts/release.sh /path/to/your/developer_key.der
+   ./scripts/release.sh /path/to/your/developer_key.der /path/to/your/external/workspace
    ```
-   The signed package will be created in your external Garmin workspace directory.
+   The signed package will be created in your specified external directory (or `bin/` by default).
 3. Upload the `.iq` file to the Connect IQ Store (Developer Dashboard) and complete the app metadata and assets.
 4. Users will be able to install the watch face from the Garmin Connect mobile app after publishing (or via a private/beta distribution if preferred).
 

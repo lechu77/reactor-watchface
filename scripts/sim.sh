@@ -24,8 +24,7 @@ fi
 
 # 3. Load watchface binary into simulator
 DEVICE="${1:-fenix8pro47mm}"
-PROJECT_NAME=$(basename "$PROJECT_ROOT")
-OUTPUT_PRG="/Users/z0051syf/workspace/Lechu/Garmin/$PROJECT_NAME/${PROJECT_NAME}.prg"
+OUTPUT_PRG="${2:-bin/reactor.prg}"
 
-echo "Loading ${PROJECT_NAME}.prg into simulator ($DEVICE)..."
+echo "Loading $OUTPUT_PRG into simulator ($DEVICE)..."
 "$MONKEYDO" "$OUTPUT_PRG" "$DEVICE"
