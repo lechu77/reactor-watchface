@@ -43,7 +43,7 @@ if [ ! -f "$KEY_FILE" ]; then
     exit 1
 fi
 
-OUTPUT_DIR="${2:-bin}"
+OUTPUT_DIR="${2:-$PROJECT_ROOT/bin}"
 OUTPUT_IQ="$OUTPUT_DIR/reactor.iq"
 
 mkdir -p "$OUTPUT_DIR"

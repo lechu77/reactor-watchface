@@ -24,7 +24,7 @@ fi
 
 # 3. Load watchface binary into simulator
 DEVICE="${1:-fenix8pro47mm}"
-OUTPUT_PRG="${2:-bin/reactor.prg}"
+OUTPUT_PRG="${2:-$PROJECT_ROOT/bin/reactor.prg}"
 
 echo "Loading $OUTPUT_PRG into simulator ($DEVICE)..."
 "$MONKEYDO" "$OUTPUT_PRG" "$DEVICE"

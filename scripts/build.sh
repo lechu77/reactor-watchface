@@ -40,7 +40,7 @@ else
 fi
 
 DEVICE="${1:-fenix8pro47mm}"
-OUTPUT_DIR="${3:-bin}"
+OUTPUT_DIR="${3:-$PROJECT_ROOT/bin}"
 OUTPUT_PRG="$OUTPUT_DIR/reactor.prg"
 
 mkdir -p "$OUTPUT_DIR"
