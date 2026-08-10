@@ -75,11 +75,11 @@ class FlankWidget {
         }
 
         // 3. Clean native text under the bottom tick
-        dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
+        // dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
         var valStr = MetricSlot.getValue(data, metricId);
         var valY = startY + totalGaugeHeight + 3; // Clear gap under bottom tick
         
-        dc.drawText(x, valY, Graphics.FONT_XTINY, valStr, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, x, valY + 6, valStr, 14, Theme.COLOR_ICONS, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     private function getSegmentColor(metricId as Number, index as Number, theme as Theme.ThemeConfig) as Number {

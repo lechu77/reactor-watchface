@@ -169,6 +169,8 @@ module CompactFont {
             dc.fillRectangle(x + w - t*2, y + h - t*2, t*2, t*2); 
             dc.drawLine(x, y + h, x + w, y);
             dc.drawLine(x+1, y + h, x + w + 1, y);
+        } else if (ch == '.') {
+            dc.fillRectangle(x + (w/2) - (t/2), y + h - t, t, t);
         } else {
             // Default block character fallback
             dc.fillRectangle(x, y, w, h);
