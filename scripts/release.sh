@@ -29,7 +29,8 @@ else
 fi
 
 # Ensure developer key is provided or exists
-KEY_FILE="${1:-}"
+DEFAULT_KEY="/Users/z0051syf/Library/CloudStorage/OneDrive-SiemensAG/Lechu/workspace/Lechu/GitHub/Lechu77/simple-nixie-watchface/developer_key.der"
+KEY_FILE="${1:-$DEFAULT_KEY}"
 
 if [ -z "$KEY_FILE" ]; then
     echo "Error: You must provide the path to your developer_key.der!"

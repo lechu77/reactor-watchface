@@ -30,7 +30,8 @@ else
 fi
 
 # Check for developer key (optional for local testing, required for export)
-KEY_FILE="${2:-$PROJECT_ROOT/developer_key.der}"
+DEFAULT_KEY="/Users/z0051syf/Library/CloudStorage/OneDrive-SiemensAG/Lechu/workspace/Lechu/GitHub/Lechu77/simple-nixie-watchface/developer_key.der"
+KEY_FILE="${2:-$DEFAULT_KEY}"
 KEY_FLAG=""
 if [ -f "$KEY_FILE" ]; then
     KEY_FLAG="-y $KEY_FILE"
