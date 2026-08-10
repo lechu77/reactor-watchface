@@ -101,9 +101,6 @@ class TimeWidget {
             dc.setColor(0x14343A, Graphics.COLOR_TRANSPARENT);
             // Line spanning exactly from the left edge of MAR box to the right edge of AGO box
             dc.drawLine(win1X, sepY, win3X + winW, sepY);
-        } else {
-            // AOD Mode: Minimal date
-            CompactFont.drawText(dc, cx + aodOffsetX, dateTopY + 4, data.dayName + " " + data.dayNumber + " " + data.monthName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
         }
 
         // 4. LOWER CLOCK COMPARTMENT - Bold 7-Segment Digits

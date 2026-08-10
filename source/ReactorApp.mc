@@ -23,7 +23,8 @@ class ReactorApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, WatchUi.InputDelegates] {
-        return [ new ReactorView() ];
+        var themeConfig = new Theme.ThemeConfig();
+        return [ new ReactorView(), new ReactorDelegate(themeConfig) ];
     }
 
     // On-device settings: shows "Customize" in the watch face long-press menu
