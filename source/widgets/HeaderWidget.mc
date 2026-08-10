@@ -9,7 +9,7 @@ class HeaderWidget {
     }
 
     function draw(dc as Dc, data as DataProvider, theme as Theme.ThemeConfig) as Void {
-        if (!theme.showTopBattery) {
+        if (theme.isAod || !theme.showTopBattery) {
             return;
         }
 

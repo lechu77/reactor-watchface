@@ -11,11 +11,19 @@ class TimeWidget {
     function draw(dc as Dc, data as DataProvider, theme as Theme.ThemeConfig) as Void {
         var cx = dc.getWidth() / 2; // 227
 
+        var aodOffsetX = 0;
+        var aodOffsetY = 0;
+        if (theme.isAod) {
+            var min = data.minutes;
+            aodOffsetX = (min % 7) - 3; // -3 to +3 pixels
+            aodOffsetY = ((min / 7) % 7) - 3; 
+        }
+
         // Frame Box Dimensions (324px wide, 178px height, Y=115 to Y=293)
         var frameWidth = 324;  
         var frameHeight = 178; 
-        var frameX = cx - (frameWidth / 2); // 65
-        var frameY = 118;                  // Top edge at Y=118
+        var frameX = cx - (frameWidth / 2) + aodOffsetX;
+        var frameY = 118 + aodOffsetY;
 
         var borderCol = theme.getFrameBorderColor(); // #5ED7D2 Cyan
         var primaryCol = theme.getPrimaryColor();     // #5ED7D2 Cyan
@@ -28,9 +36,11 @@ class TimeWidget {
         var windowBorderCol = 0x14343A;               // Subtle thin window border
 
         // 1. Draw Outer SOLID Heavy Cyan Frame Border (3px solid stroke)
-        dc.setColor(borderCol, Graphics.COLOR_TRANSPARENT);
-        for (var i = 0; i < 3; i++) {
-            dc.drawRoundedRectangle(frameX + i, frameY + i, frameWidth - (i * 2), frameHeight - (i * 2), 14 - i);
+        if (!theme.isAod) {
+            dc.setColor(borderCol, Graphics.COLOR_TRANSPARENT);
+            for (var i = 0; i < 3; i++) {
+                dc.drawRoundedRectangle(frameX + i, frameY + i, frameWidth - (i * 2), frameHeight - (i * 2), 14 - i);
+            }
         }
 
         // 2. TOP DATE COMPARTMENT - SUBTLE & MUTED (MAR + 04 + AGO)
@@ -40,55 +50,61 @@ class TimeWidget {
         var winGap = 12;
         var winMargin = 12;
 
-        // Window 1: Left (MAR)
-        var win1X = frameX + winMargin; // 77
-        dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
-        dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
-        dc.drawRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 4, data.dayName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
-
-        // Window 2: Center (04 Day Number in Muted 7-Segment Teal)
-        var win2X = win1X + winW + winGap; // 181
-        dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(win2X, dateTopY, winW, dateWindowH, 4);
-        dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
-        dc.drawRoundedRectangle(win2X, dateTopY, winW, dateWindowH, 4);
-        
-        // Parse Day Number
-        var d1 = 0;
-        var d2 = 4;
-        if (data.dayNumber.length() >= 2) {
-            var s1 = data.dayNumber.substring(0, 1);
-            var s2 = data.dayNumber.substring(1, 2);
-            if (s1 != null) {
-                var v1 = s1.toNumber();
-                if (v1 != null) { d1 = v1; }
-            }
-            if (s2 != null) {
-                var v2 = s2.toNumber();
-                if (v2 != null) { d2 = v2; }
-            }
-        }
-        
-        // Draw 7-Segment Day Number "04" centered inside Window 2 in same cyan as clock
-        var numX = win2X + (winW / 2) - 16; // Centered for 14px width + 4px gap
-        SegmentRenderer.drawDigit(dc, numX, dateTopY + 3, 14, 24, 2, d1, dateDayCol, unlitCol, 0);
-        SegmentRenderer.drawDigit(dc, numX + 18, dateTopY + 3, 14, 24, 2, d2, dateDayCol, unlitCol, 0);
-
-        // Window 3: Right (AGO)
-        var win3X = win2X + winW + winGap; // 285
-        dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
-        dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
-        dc.drawRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 4, data.monthName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
-
         // 3. HORIZONTAL SEPARATOR LINE between Date and Clock
         var sepY = dateTopY + dateWindowH + 5; // 156
-        dc.setColor(0x14343A, Graphics.COLOR_TRANSPARENT);
-        // Line spanning exactly from the left edge of MAR box to the right edge of AGO box
-        dc.drawLine(win1X, sepY, win3X + winW, sepY);
+
+        if (!theme.isAod) {
+            // Window 1: Left (MAR)
+            var win1X = frameX + winMargin; // 77
+            dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
+            dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
+            dc.drawRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
+            CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 4, data.dayName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+
+            // Window 2: Center (04 Day Number in Muted 7-Segment Teal)
+            var win2X = win1X + winW + winGap; // 181
+            dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(win2X, dateTopY, winW, dateWindowH, 4);
+            dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
+            dc.drawRoundedRectangle(win2X, dateTopY, winW, dateWindowH, 4);
+            
+            // Parse Day Number
+            var d1 = 0;
+            var d2 = 4;
+            if (data.dayNumber.length() >= 2) {
+                var s1 = data.dayNumber.substring(0, 1);
+                var s2 = data.dayNumber.substring(1, 2);
+                if (s1 != null) {
+                    var v1 = s1.toNumber();
+                    if (v1 != null) { d1 = v1; }
+                }
+                if (s2 != null) {
+                    var v2 = s2.toNumber();
+                    if (v2 != null) { d2 = v2; }
+                }
+            }
+            
+            // Draw 7-Segment Day Number "04" centered inside Window 2 in same cyan as clock
+            var numX = win2X + (winW / 2) - 16; // Centered for 14px width + 4px gap
+            SegmentRenderer.drawDigit(dc, numX, dateTopY + 3, 14, 24, 2, d1, dateDayCol, unlitCol, 0);
+            SegmentRenderer.drawDigit(dc, numX + 18, dateTopY + 3, 14, 24, 2, d2, dateDayCol, unlitCol, 0);
+
+            // Window 3: Right (AGO)
+            var win3X = win2X + winW + winGap; // 285
+            dc.setColor(windowBgCol, Graphics.COLOR_TRANSPARENT);
+            dc.fillRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
+            dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
+            dc.drawRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
+            CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 4, data.monthName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+
+            dc.setColor(0x14343A, Graphics.COLOR_TRANSPARENT);
+            // Line spanning exactly from the left edge of MAR box to the right edge of AGO box
+            dc.drawLine(win1X, sepY, win3X + winW, sepY);
+        } else {
+            // AOD Mode: Minimal date
+            CompactFont.drawText(dc, cx + aodOffsetX, dateTopY + 4, data.dayName + " " + data.dayNumber + " " + data.monthName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+        }
 
         // 4. LOWER CLOCK COMPARTMENT - Bold 7-Segment Digits
         var hours = data.hours;
@@ -115,8 +131,8 @@ class TimeWidget {
             var w = 54; // Image width
             var h = 100; // Image height
             var totalW = w * 5; // 270
-            var vfdStartX = cx - (totalW / 2);
-            var vfdStartY = lowerCenterY - (h / 2);
+            var vfdStartX = cx - (totalW / 2) + aodOffsetX;
+            var vfdStartY = lowerCenterY - (h / 2) + aodOffsetY;
             
             dc.drawBitmap(vfdStartX, vfdStartY, _vfdDrawables[hours / 10]);
             dc.drawBitmap(vfdStartX + w, vfdStartY, _vfdDrawables[hours % 10]);
@@ -142,8 +158,8 @@ class TimeWidget {
             var h = 104; // Image height (cropped tighter to digit)
             var colonW = 12; // Gap for the colon
             var totalW = (w * 4) + colonW; // 300px total width
-            var vfdStartX = cx - (totalW / 2);
-            var vfdStartY = lowerCenterY - (h / 2);
+            var vfdStartX = cx - (totalW / 2) + aodOffsetX;
+            var vfdStartY = lowerCenterY - (h / 2) + aodOffsetY;
             
             dc.drawBitmap(vfdStartX, vfdStartY, _nixieRealDrawables[hours / 10]);
             dc.drawBitmap(vfdStartX + w, vfdStartY, _nixieRealDrawables[hours % 10]);
@@ -162,8 +178,8 @@ class TimeWidget {
             var gap = 10;
 
             var totalClockW = (digitW * 4) + (gap * 2) + 20 + thick; // 233px
-            var startX = cx - (totalClockW / 2);                      // 110
-            var startY = lowerCenterY - (digitH / 2);                     // 178
+            var startX = cx - (totalClockW / 2) + aodOffsetX;
+            var startY = lowerCenterY - (digitH / 2);
 
             // Draw Clean Bold Chamfered 7-Segment Digits
             SegmentRenderer.drawTime(dc, startX, startY, digitW, digitH, thick, gap, hours, minutes, primaryCol, unlitCol, 0);
