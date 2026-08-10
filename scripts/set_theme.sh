@@ -46,8 +46,8 @@ else
     echo "· No se encontró caché del simulador"
 fi
 
-# 3. Borrar bin y gen para evitar errores de compilación por caché sucia
-rm -rf "$PROJECT_ROOT/bin" "$PROJECT_ROOT/gen"
+# 3. Borrar gen para evitar errores de compilación por caché sucia
+rm -rf "$PROJECT_ROOT/gen"
 
 # 4. Recompilar y relanzar
 echo "⟳ Recompilando..."
