@@ -40,8 +40,10 @@ else
 fi
 
 DEVICE="${1:-fenix8pro47mm}"
-OUTPUT_DIR="/Users/z0051syf/workspace/Lechu/Garmin/reactor-watchface"
-OUTPUT_PRG="$OUTPUT_DIR/reactor.prg"
+PROJECT_NAME=$(basename "$PROJECT_ROOT")
+DEFAULT_OUT="/Users/z0051syf/workspace/Lechu/Garmin/$PROJECT_NAME"
+OUTPUT_DIR="${3:-$DEFAULT_OUT}"
+OUTPUT_PRG="$OUTPUT_DIR/${PROJECT_NAME}.prg"
 
 mkdir -p "$OUTPUT_DIR"
 

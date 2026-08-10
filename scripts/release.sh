@@ -43,8 +43,10 @@ if [ ! -f "$KEY_FILE" ]; then
     exit 1
 fi
 
-OUTPUT_DIR="/Users/z0051syf/workspace/Lechu/Garmin/reactor-watchface"
-OUTPUT_IQ="$OUTPUT_DIR/reactor.iq"
+PROJECT_NAME=$(basename "$PROJECT_ROOT")
+DEFAULT_OUT="/Users/z0051syf/workspace/Lechu/Garmin/$PROJECT_NAME"
+OUTPUT_DIR="${2:-$DEFAULT_OUT}"
+OUTPUT_IQ="$OUTPUT_DIR/${PROJECT_NAME}.iq"
 
 mkdir -p "$OUTPUT_DIR"
 
