@@ -4,12 +4,12 @@
     <!-- Theme Settings -->
     <string id="setting_theme_style">Estilo del Reloj</string>
     <string id="setting_show_top_battery">Mostrar Batería Superior</string>
-    <string id="theme_nixie_cyan">Nixie (Cyan)</string>
-    <string id="theme_lcd_cyan">Sólido (Cyan)</string>
-    <string id="theme_lcd_green">Sólido (Fósforo Verde)</string>
-    <string id="theme_lcd_amber">Sólido (Ámbar)</string>
-    <string id="theme_lcd_white">Sólido (Blanco)</string>
-    <string id="theme_lcd_siemens">Sólido (Azul Siemens)</string>
+    <string id="theme_nixie_cyan">VFD (Cyan)</string>
+    <string id="theme_lcd_cyan">LCD (Cyan)</string>
+    <string id="theme_lcd_green">LCD (Fósforo Verde)</string>
+    <string id="theme_lcd_amber">LCD (Ámbar)</string>
+    <string id="theme_lcd_white">LCD (Blanco)</string>
+    <string id="theme_lcd_siemens">LCD (Azul Siemens)</string>
     <string id="theme_nixie_amber">Nixie Verdadero (Ámbar)</string>
 
     <!-- Bottom slot picker option labels -->

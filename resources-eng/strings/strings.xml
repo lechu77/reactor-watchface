@@ -1,0 +1,70 @@
+<resources>
+    <string id="AppName">REACTOR</string>
+
+    <!-- Theme Settings -->
+    <string id="setting_theme_style">Watchface Style</string>
+    <string id="setting_show_top_battery">Show Top Battery</string>
+    <string id="theme_nixie_cyan">VFD (Cyan)</string>
+    <string id="theme_lcd_cyan">LCD (Cyan)</string>
+    <string id="theme_lcd_green">LCD (Green Phosphor)</string>
+    <string id="theme_lcd_amber">LCD (Amber)</string>
+    <string id="theme_lcd_white">LCD (White)</string>
+    <string id="theme_lcd_siemens">LCD (Siemens Blue)</string>
+    <string id="theme_nixie_amber">True Nixie (Amber)</string>
+
+    <!-- Bottom slot picker option labels -->
+    <!-- Time -->
+    <string id="metric_time">Time</string>
+    <string id="metric_date">Date</string>
+
+    <!-- Activity -->
+    <string id="metric_steps">Steps</string>
+    <string id="metric_distance">Distance</string>
+    <string id="metric_calories">Calories</string>
+    <string id="metric_floors">Floors</string>
+    <string id="metric_intensity_minutes">Intensity Mins</string>
+
+    <!-- Health -->
+    <string id="metric_heartrate">Heart Rate</string>
+    <string id="metric_stress">Stress</string>
+    <string id="metric_body_battery">Body Battery</string>
+    <string id="metric_hrv">HRV Status</string>
+    <string id="metric_resting_hr">Resting HR</string>
+    <string id="metric_pulse_ox">Pulse Ox</string>
+
+    <!-- Training -->
+    <string id="metric_training_readiness">Train. Readiness</string>
+    <string id="metric_recovery_time">Recovery Time</string>
+    <string id="metric_vo2_max">VO2 Max</string>
+    <string id="metric_training_status">Training Status</string>
+    <string id="metric_acute_load">Acute Load</string>
+    <string id="metric_endurance_score">Endurance Score</string>
+    <string id="metric_hill_score">Hill Score</string>
+
+    <string id="flank_left_label">Left Bar</string>
+    <string id="flank_right_label">Right Bar</string>
+
+    <!-- Outdoor -->
+    <string id="metric_altitude">Altitude</string>
+    <string id="metric_temperature">Temperature</string>
+    <string id="metric_weather">Weather</string>
+    <string id="metric_sunrise">Sunrise</string>
+    <string id="metric_sunset">Sunset</string>
+    <string id="metric_moon_phase">Moon Phase</string>
+
+    <!-- Device -->
+    <string id="metric_battery">Watch Battery</string>
+    <string id="metric_phone_battery">Phone Battery</string>
+    <string id="metric_bluetooth">Bluetooth</string>
+    <string id="metric_seconds">Seconds</string>
+
+    <!-- Slot labels -->
+    <string id="slot1_label">Slot 1 Metric</string>
+    <string id="slot2_label">Slot 2 Metric</string>
+    <string id="slot3_label">Slot 3 Metric</string>
+    <string id="slot4_label">Slot 4 Metric</string>
+
+    <!-- Chart labels -->
+    <string id="chart_hr_label">HR</string>
+    <string id="chart_bb_label">BB</string>
+</resources>
