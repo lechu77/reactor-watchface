@@ -1,6 +1,6 @@
 # REACTOR Watchface
 
-**REACTOR** is a premium Garmin Connect IQ watchface for AMOLED smartwatches. It blends industrial brutalist aesthetics with retro design cues from Nixie tubes, LCD screens, and vintage control panels — without being a literal retro watchface.
+**REACTOR** is a premium Garmin Connect IQ watchface for AMOLED smartwatches. It blends industrial brutalist aesthetics with retro design cues from VFD displays, LCD screens, and vintage control panels — without being a literal retro watchface.
 
 ## Screenshots
 
@@ -8,15 +8,15 @@
 |:---:|:---:|:---:|
 | <img src="assets/screenshots/vfd_cyan.png" width="250"> | <img src="assets/screenshots/lcd_cyan.png" width="250"> | <img src="assets/screenshots/lcd_green.png" width="250"> |
 
-| True Nixie (Amber) | LCD (Amber) | LCD (Siemens Blue) | LCD (White) |
+| True VFD (Amber) | LCD (Amber) | LCD (Siemens Blue) | LCD (White) |
 |:---:|:---:|:---:|:---:|
 | <img src="assets/screenshots/nixie_amber.png" width="180"> | <img src="assets/screenshots/lcd_amber.png" width="180"> | <img src="assets/screenshots/lcd_siemens_blue.png" width="180"> | <img src="assets/screenshots/lcd_white.png" width="180"> |
 
 ## Features
 
-- **Nixie Tube Digits**: Bitmap-rendered glowing cyan tubes for the main clock display, featuring a simulated wire mesh, light bloom, and unlit filament background for realism.
+- **VFD Tube Digits**: Bitmap-rendered glowing cyan tubes for the main clock display, featuring a simulated wire mesh, light bloom, and unlit filament background for realism.
 - **LCD Segment Digits**: Vector-drawn 7-segment renderers as an alternative solid style.
-- **6 Color Themes**: Nixie Cyan, LCD Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
+- **6 Color Themes**: VFD Cyan, LCD Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
 - **Dynamic Flank Gauges**: 10-segment LED-style vertical gauges (Heart Rate, Stress, Battery, Steps, Floors, Intensity Minutes, Body Battery, Phone Battery).
 - **Dual Historical Charts**: Real-time bar charts showing Heart Rate and Body Battery trends.
 - **Custom Vector Typography**: `CompactFont`, an entirely procedural geometric font for date windows and metrics.
@@ -143,7 +143,7 @@ reactor-watchface/
 │   └── widgets/
 │       ├── HeaderWidget.mc    # Top battery & status bar
 │       ├── ChartWidget.mc     # Dual historical bar charts
-│       ├── TimeWidget.mc      # Main clock (Nixie or LCD)
+│       ├── TimeWidget.mc      # Main clock (VFD or LCD)
 │       ├── FlankWidget.mc     # Side LED gauge meters
 │       └── BottomMetricsWidget.mc  # Bottom metric readouts
 ├── resources/
