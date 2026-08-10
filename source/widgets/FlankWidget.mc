@@ -25,16 +25,16 @@ class FlankWidget {
         var leftVal = MetricSlot.getNumericValue(data, leftMetric);
         var leftMin = MetricSlot.getGaugeMin(leftMetric);
         var leftMax = MetricSlot.getGaugeMax(leftMetric);
-        drawGauge(dc, data, leftX, leftMetric, leftVal, leftMin, leftMax);
+        drawGauge(dc, data, theme, leftX, leftMetric, leftVal, leftMin, leftMax);
 
         // Right Flank
         var rightVal = MetricSlot.getNumericValue(data, rightMetric);
         var rightMin = MetricSlot.getGaugeMin(rightMetric);
         var rightMax = MetricSlot.getGaugeMax(rightMetric);
-        drawGauge(dc, data, rightX, rightMetric, rightVal, rightMin, rightMax);
+        drawGauge(dc, data, theme, rightX, rightMetric, rightVal, rightMin, rightMax);
     }
 
-    private function drawGauge(dc as Dc, data as DataProvider, x as Number, metricId as Number, value as Number, minVal as Number, maxVal as Number) as Void {
+    private function drawGauge(dc as Dc, data as DataProvider, theme as Theme.ThemeConfig, x as Number, metricId as Number, value as Number, minVal as Number, maxVal as Number) as Void {
         var numSegments = 10;
         
         var segWidth = 26;  // Long width
@@ -60,12 +60,13 @@ class FlankWidget {
             activeCount = (ratio * numSegments).toNumber();
         }
 
-        // 2. Draw 10 vertical segments: Active = WHITE (#D7D7D7), Unlit = DIM (#1C202B)
+        // 2. Draw 10 vertical segments
         for (var i = 0; i < numSegments; i++) {
             var segY = startY + totalGaugeHeight - ((i + 1) * (segHeight + segSpacing));
             
             if (i < activeCount) {
-                dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
+                var color = getSegmentColor(metricId, i, theme);
+                dc.setColor(color, Graphics.COLOR_TRANSPARENT);
             } else {
                 dc.setColor(Theme.COLOR_SEGMENT_OFF, Graphics.COLOR_TRANSPARENT);
             }
@@ -78,8 +79,33 @@ class FlankWidget {
         var valStr = MetricSlot.getValue(data, metricId);
         var valY = startY + totalGaugeHeight + 3; // Clear gap under bottom tick
         
-        // Render cleanly using native font (removed fake bold)
         dc.drawText(x, valY, Graphics.FONT_XTINY, valStr, Graphics.TEXT_JUSTIFY_CENTER);
+    }
+
+    private function getSegmentColor(metricId as Number, index as Number, theme as Theme.ThemeConfig) as Number {
+        // index goes from 0 (bottom) to 9 (top)
+        
+        if (metricId == MetricSlot.BATTERY || metricId == MetricSlot.BODY_BATTERY || metricId == MetricSlot.PHONE_BATTERY) {
+            if (index <= 1) { return 0xFF0000; } // Red (0-20%)
+            if (index <= 3) { return 0xFFB000; } // Amber/Yellow (20-40%)
+            return 0x43E038; // Green (40-100%)
+        }
+        
+        if (metricId == MetricSlot.HEARTRATE) {
+            if (index <= 4) { return 0x43E038; } // Green (Z1-Z3)
+            if (index <= 7) { return 0xFFB000; } // Amber (Z4)
+            return 0xFF0000; // Red (Z5)
+        }
+        
+        if (metricId == MetricSlot.STRESS) {
+            if (index <= 2) { return 0x00AAFF; } // Blue (Rest)
+            if (index <= 5) { return 0x43E038; } // Green (Low)
+            if (index <= 7) { return 0xFFB000; } // Amber (Med)
+            return 0xFF0000; // Red (High)
+        }
+        
+        // Default for steps, floors, etc: Use the theme's primary color
+        return theme.getPrimaryColor();
     }
 
     private function loadBitmap(metricId as Number) as WatchUi.BitmapResource? {
