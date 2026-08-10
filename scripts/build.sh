@@ -29,14 +29,13 @@ else
     fi
 fi
 
-# Ensure developer key exists
-KEY_FILE="$PROJECT_ROOT/developer_key.der"
-if [ ! -f "$KEY_FILE" ]; then
-    echo "Generating developer key (developer_key.der)..."
-    PEM_KEY=$(mktemp)
-    openssl genrsa -out "$PEM_KEY" 4096 2>/dev/null
-    openssl pkcs8 -topk8 -inform PEM -outform DER -in "$PEM_KEY" -out "$KEY_FILE" -nocrypt 2>/dev/null
-    rm -f "$PEM_KEY"
+# Check for developer key (optional for local testing, required for export)
+KEY_FILE="${2:-$PROJECT_ROOT/developer_key.der}"
+KEY_FLAG=""
+if [ -f "$KEY_FILE" ]; then
+    KEY_FLAG="-y $KEY_FILE"
+else
+    echo "Notice: No developer key found/provided. Building without signing (sufficient for simulator)."
 fi
 
 DEVICE="${1:-fenix8pro47mm}"
@@ -54,7 +53,7 @@ echo "  Output: $OUTPUT_PRG"
     -f monkey.jungle \
     -o "$OUTPUT_PRG" \
     -d "$DEVICE" \
-    -y "$KEY_FILE" \
+    $KEY_FLAG \
     -w \
     -l 3
 

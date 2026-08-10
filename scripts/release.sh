@@ -28,11 +28,17 @@ else
     fi
 fi
 
-# Ensure developer key exists
-KEY_FILE="$PROJECT_ROOT/developer_key.der"
+# Ensure developer key is provided or exists
+KEY_FILE="${1:-}"
+
+if [ -z "$KEY_FILE" ]; then
+    echo "Error: You must provide the path to your developer_key.der!"
+    echo "Usage: ./scripts/release.sh /path/to/your/developer_key.der"
+    exit 1
+fi
+
 if [ ! -f "$KEY_FILE" ]; then
-    echo "Error: developer_key.der not found! You must generate one to publish."
-    echo "Run build.sh first to auto-generate a key, or provide your own."
+    echo "Error: Developer key not found at $KEY_FILE!"
     exit 1
 fi
 
