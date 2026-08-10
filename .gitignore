@@ -1,7 +1,10 @@
 bin/
 gen/
+mir/
 *.prg
 *.iq
 *.der
+*.log
+*.debug.xml
 .DS_Store
 .vscode/
