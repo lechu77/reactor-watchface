@@ -4,7 +4,13 @@
 
 ## Screenshots
 
-> Coming soon — Nixie, Ámbar, Fósforo Verde, Blanco, Azul Siemens.
+| VFD (Cyan) | LCD (Cyan) | LCD (Green Phosphor) |
+|:---:|:---:|:---:|
+| <img src="assets/screenshots/vfd_cyan.png" width="250"> | <img src="assets/screenshots/lcd_cyan.png" width="250"> | <img src="assets/screenshots/lcd_green.png" width="250"> |
+
+| True Nixie (Amber) | LCD (Amber) | LCD (Siemens Blue) | LCD (White) |
+|:---:|:---:|:---:|:---:|
+| <img src="assets/screenshots/nixie_amber.png" width="180"> | <img src="assets/screenshots/lcd_amber.png" width="180"> | <img src="assets/screenshots/lcd_siemens_blue.png" width="180"> | <img src="assets/screenshots/lcd_white.png" width="180"> |
 
 ## Features
 
