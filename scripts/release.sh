@@ -43,7 +43,7 @@ if [ ! -f "$KEY_FILE" ]; then
     exit 1
 fi
 
-OUTPUT_DIR="$PROJECT_ROOT/bin"
+OUTPUT_DIR="/Users/z0051syf/workspace/Lechu/Garmin/reactor-watchface"
 OUTPUT_IQ="$OUTPUT_DIR/reactor.iq"
 
 mkdir -p "$OUTPUT_DIR"
