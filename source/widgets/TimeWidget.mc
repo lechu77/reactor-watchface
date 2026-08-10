@@ -3,7 +3,6 @@ import Toybox.Lang;
 
 class TimeWidget {
     private var _vfdDrawables as Array<Toybox.WatchUi.BitmapResource>?;
-    private var _vfdSmallDrawables as Array<Toybox.WatchUi.BitmapResource>?;
     private var _nixieRealDrawables as Array<Toybox.WatchUi.BitmapResource>?;
 
     function initialize() {
@@ -28,9 +27,9 @@ class TimeWidget {
         var windowBgCol = 0x0A161A;                   // Deep dark subtle background
         var windowBorderCol = 0x14343A;               // Subtle thin window border
 
-        // 1. Draw Outer SOLID Heavy Cyan Frame Border (4px solid stroke)
+        // 1. Draw Outer SOLID Heavy Cyan Frame Border (3px solid stroke)
         dc.setColor(borderCol, Graphics.COLOR_TRANSPARENT);
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 3; i++) {
             dc.drawRoundedRectangle(frameX + i, frameY + i, frameWidth - (i * 2), frameHeight - (i * 2), 14 - i);
         }
 
@@ -47,7 +46,7 @@ class TimeWidget {
         dc.fillRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
         dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
         dc.drawRoundedRectangle(win1X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 6, data.dayName, 18, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, win1X + (winW / 2), dateTopY + 4, data.dayName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
 
         // Window 2: Center (04 Day Number in Muted 7-Segment Teal)
         var win2X = win1X + winW + winGap; // 181
@@ -73,32 +72,9 @@ class TimeWidget {
         }
         
         // Draw 7-Segment Day Number "04" centered inside Window 2 in same cyan as clock
-        var numX = win2X + (winW / 2) - 12; // 215
-        if (theme.currentStyle == Theme.THEME_NIXIE_CYAN) {
-            if (_vfdSmallDrawables == null) {
-                _vfdSmallDrawables = new [10] as Array<Toybox.WatchUi.BitmapResource>;
-                _vfdSmallDrawables[0] = Application.loadResource(Rez.Drawables.VfdSmall0) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[1] = Application.loadResource(Rez.Drawables.VfdSmall1) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[2] = Application.loadResource(Rez.Drawables.VfdSmall2) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[3] = Application.loadResource(Rez.Drawables.VfdSmall3) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[4] = Application.loadResource(Rez.Drawables.VfdSmall4) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[5] = Application.loadResource(Rez.Drawables.VfdSmall5) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[6] = Application.loadResource(Rez.Drawables.VfdSmall6) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[7] = Application.loadResource(Rez.Drawables.VfdSmall7) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[8] = Application.loadResource(Rez.Drawables.VfdSmall8) as Toybox.WatchUi.BitmapResource;
-                _vfdSmallDrawables[9] = Application.loadResource(Rez.Drawables.VfdSmall9) as Toybox.WatchUi.BitmapResource;
-            }
-            // Small digits are 16x24. The old vector ones were 10x18.
-            // Adjust X to center properly. 16px wide each, so total 32px wide + gap? No, we just place them adjacently.
-            var sw = 16;
-            var sY = dateTopY + 3; // Center vertically in 30px window
-            var sX = win2X + (winW / 2) - sw;
-            dc.drawBitmap(sX, sY, _vfdSmallDrawables[d1]);
-            dc.drawBitmap(sX + sw, sY, _vfdSmallDrawables[d2]);
-        } else {
-            SegmentRenderer.drawDigit(dc, numX, dateTopY + 6, 10, 18, 2, d1, dateDayCol, unlitCol, 0);
-            SegmentRenderer.drawDigit(dc, numX + 14, dateTopY + 6, 10, 18, 2, d2, dateDayCol, unlitCol, 0);
-        }
+        var numX = win2X + (winW / 2) - 16; // Centered for 14px width + 4px gap
+        SegmentRenderer.drawDigit(dc, numX, dateTopY + 3, 14, 24, 2, d1, dateDayCol, unlitCol, 0);
+        SegmentRenderer.drawDigit(dc, numX + 18, dateTopY + 3, 14, 24, 2, d2, dateDayCol, unlitCol, 0);
 
         // Window 3: Right (AGO)
         var win3X = win2X + winW + winGap; // 285
@@ -106,7 +82,7 @@ class TimeWidget {
         dc.fillRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
         dc.setColor(windowBorderCol, Graphics.COLOR_TRANSPARENT);
         dc.drawRoundedRectangle(win3X, dateTopY, winW, dateWindowH, 4);
-        CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 6, data.monthName, 18, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, win3X + (winW / 2), dateTopY + 4, data.monthName, 22, dateTextCol, Graphics.TEXT_JUSTIFY_CENTER);
 
         // 3. HORIZONTAL SEPARATOR LINE between Date and Clock
         var sepY = dateTopY + dateWindowH + 5; // 156

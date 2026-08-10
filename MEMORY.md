@@ -15,7 +15,8 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 - **Chart gap:** The 18px gap between left and right charts aligns with the battery widget centerline.
 - **Header Widget:** The top battery widget is centered vertically at `Y=14`, creating a perfect balance between the top bezel edge (`Y=0`) and the top of the charts (`Y=44`).
 - **Central Layout Shift:** The entire central block (`ChartWidget`, `TimeWidget`, `BottomMetricsWidget`) was shifted up by 20 pixels to better balance the watchface vertically.
-- **TimeWidget Date Size:** The text for day and month uses a height of 18 (originally 14) and fits symmetrically inside the 30px boxes by reducing vertical padding.
+- **TimeWidget Date Size:** The text for day and month uses a font height of 22 (originally 14, then 18). The day number now uses `SegmentRenderer` at size 14x24 for all themes, eliminating the small VFD bitmaps.
+- **TimeWidget Frame:** The outer cyan frame thickness was reduced from 4px to 3px for a slightly finer look.
 - **TimeWidget separator:** The horizontal line between calendar and clock is dynamically calculated to span from the left edge of window 1 to the right edge of window 3.
 - **Flank segment logic:** Maps metric values (HR: 60–180, Stress: 0–100, etc.) into 10 discrete LED-style segments.
 
@@ -32,7 +33,7 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 - **Bitmap caching:** All icons in `FlankWidget` and `BottomMetricsWidget` are loaded once on first draw and cached in dictionaries. VFD digit bitmaps in `TimeWidget` are loaded once into arrays.
 - **No allocations in draw loop:** Renderers reuse passed structures and primitives. No new objects are created during `onUpdate()`.
-- **Lazy loading:** VFD bitmaps (`_vfdDrawables`, `_vfdSmallDrawables`) are loaded on first use, not during `initialize()`.
+- **Lazy loading:** VFD bitmaps (`_vfdDrawables`) are loaded on first use, not during `initialize()`.
 
 ## Theme System Evolution
 
