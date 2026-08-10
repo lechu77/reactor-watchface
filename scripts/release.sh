@@ -29,7 +29,7 @@ else
 fi
 
 # Ensure developer key is provided or exists
-DEFAULT_KEY="/Users/z0051syf/Library/CloudStorage/OneDrive-SiemensAG/Lechu/workspace/Lechu/GitHub/Lechu77/simple-nixie-watchface/developer_key.der"
+DEFAULT_KEY="/Users/z0051syf/workspace/Lechu/Garmin/lechu-developer_key.der"
 KEY_FILE="${1:-$DEFAULT_KEY}"
 
 if [ -z "$KEY_FILE" ]; then
