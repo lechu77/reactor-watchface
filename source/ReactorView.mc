@@ -43,6 +43,11 @@ class ReactorView extends WatchUi.WatchFace {
         dc.setColor(Theme.COLOR_BG, Theme.COLOR_BG);
         dc.clear();
 
+        // If user disabled AOD via settings, just leave the screen black
+        if (_themeConfig.isAod && !_themeConfig.useAod) {
+            return;
+        }
+
         // 3. Render all 5 layout zones
         _headerWidget.draw(dc, _dataProvider, _themeConfig);
         _chartWidget.draw(dc, _dataProvider, _themeConfig);

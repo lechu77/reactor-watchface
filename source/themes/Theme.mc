@@ -24,6 +24,7 @@ module Theme {
     class ThemeConfig {
         public var currentStyle as Style = THEME_NIXIE_CYAN;
         public var isAod as Boolean = false;
+        public var useAod as Boolean = true;
         public var showTopBattery as Boolean = true;
         public var leftFlankSlot as Number = 4; // HeartRate
         public var rightFlankSlot as Number = 5; // Stress
@@ -41,6 +42,10 @@ module Theme {
                 var sTopBatt = Toybox.Application.Properties.getValue("showTopBattery");
                 if (sTopBatt != null) {
                     showTopBattery = sTopBatt as Boolean;
+                }
+                var sUseAod = Toybox.Application.Properties.getValue("useAod");
+                if (sUseAod != null) {
+                    useAod = sUseAod as Boolean;
                 }
                 var leftF = Toybox.Application.Properties.getValue("leftFlankSlot");
                 if (leftF != null) {

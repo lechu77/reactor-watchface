@@ -12,4 +12,5 @@
     <!-- Style Settings -->
     <property id="themeStyle" type="number">0</property>
     <property id="showTopBattery" type="boolean">true</property>
+    <property id="useAod" type="boolean">true</property>
 </properties>

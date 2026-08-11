@@ -16,6 +16,9 @@
     <setting propertyKey="@Properties.showTopBattery" title="@Strings.setting_show_top_battery">
         <settingConfig type="boolean" />
     </setting>
+    <setting propertyKey="@Properties.useAod" title="@Strings.setting_use_aod">
+        <settingConfig type="boolean" />
+    </setting>
 
     <!-- Side Flanks -->
     <setting propertyKey="@Properties.leftFlankSlot" title="@Strings.flank_left_label">
