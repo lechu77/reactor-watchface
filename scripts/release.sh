@@ -43,10 +43,14 @@ if [ ! -f "$KEY_FILE" ]; then
     exit 1
 fi
 
-OUTPUT_DIR="${2:-$PROJECT_ROOT/bin}"
+LOCAL_BIN="$PROJECT_ROOT/bin"
+OUTPUT_DIR="${2:-$LOCAL_BIN}"
 OUTPUT_IQ="$OUTPUT_DIR/reactor.iq"
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$LOCAL_BIN"
+if [ "$OUTPUT_DIR" != "$LOCAL_BIN" ]; then
+    mkdir -p "$OUTPUT_DIR"
+fi
 
 echo "Building release package (reactor.iq) for Connect IQ Store..."
 echo "  Compiler: $MONKEYC"
@@ -54,14 +58,17 @@ echo "  Output: $OUTPUT_IQ"
 
 "$MONKEYC" \
     -f monkey.jungle \
-    -o "$OUTPUT_IQ" \
+    -o "$LOCAL_BIN/reactor.iq" \
     -y "$KEY_FILE" \
     -e \
     -w \
     -l 3 \
     -r
 
-if [ -f "$OUTPUT_IQ" ]; then
+if [ -f "$LOCAL_BIN/reactor.iq" ]; then
+    if [ "$OUTPUT_DIR" != "$LOCAL_BIN" ]; then
+        cp "$LOCAL_BIN/reactor.iq" "$OUTPUT_IQ"
+    fi
     echo "Release build successful! Package created at: $OUTPUT_IQ"
     echo "You can now upload this file to the Garmin Connect IQ Developer Dashboard."
 else

@@ -40,10 +40,14 @@ else
 fi
 
 DEVICE="${1:-fenix8pro47mm}"
-OUTPUT_DIR="${3:-$PROJECT_ROOT/bin}"
+LOCAL_BIN="$PROJECT_ROOT/bin"
+OUTPUT_DIR="${3:-$LOCAL_BIN}"
 OUTPUT_PRG="$OUTPUT_DIR/reactor.prg"
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$LOCAL_BIN"
+if [ "$OUTPUT_DIR" != "$LOCAL_BIN" ]; then
+    mkdir -p "$OUTPUT_DIR"
+fi
 
 echo "Building REACTOR watch face..."
 echo "  Compiler: $MONKEYC"
@@ -52,13 +56,16 @@ echo "  Output: $OUTPUT_PRG"
 
 "$MONKEYC" \
     -f monkey.jungle \
-    -o "$OUTPUT_PRG" \
+    -o "$LOCAL_BIN/reactor.prg" \
     -d "$DEVICE" \
     $KEY_FLAG \
     -w \
     -l 3
 
-if [ -f "$OUTPUT_PRG" ]; then
+if [ -f "$LOCAL_BIN/reactor.prg" ]; then
+    if [ "$OUTPUT_DIR" != "$LOCAL_BIN" ]; then
+        cp "$LOCAL_BIN/reactor.prg" "$OUTPUT_PRG"
+    fi
     echo "Build successful! Binary created at: $OUTPUT_PRG"
 else
     echo "Build failed!"
