@@ -79,7 +79,7 @@ class FlankWidget {
         var valStr = MetricSlot.getValue(data, metricId);
         var valY = startY + totalGaugeHeight + 3; // Clear gap under bottom tick
         
-        CompactFont.drawText(dc, x, valY + 6, valStr, 14, Theme.COLOR_ICONS, Graphics.TEXT_JUSTIFY_CENTER);
+        CompactFont.drawText(dc, x, valY + 6, valStr, 17, Theme.COLOR_ICONS, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     private function getSegmentColor(metricId as Number, index as Number, theme as Theme.ThemeConfig) as Number {
