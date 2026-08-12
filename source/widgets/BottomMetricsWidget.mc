@@ -48,10 +48,12 @@ class BottomMetricsWidget {
         // Vertical centering: icon=40 + gap=4 + text=18 = 62px group
         var iconSize  = 40;
         var groupTopY = zoneTopY + (zoneH - 62) / 2;
-        var valY      = groupTopY + iconSize + 4;        drawSlot(dc, data, col1X, groupTopY, iconSize, valY, slot1);
-        drawSlot(dc, data, col2X, groupTopY, iconSize, valY, slot2);
-        drawSlot(dc, data, col3X, groupTopY, iconSize, valY, slot3);
-        drawSlot(dc, data, col4X, groupTopY, iconSize, valY, slot4);
+        var valY      = groupTopY + iconSize + 4;        
+
+        if (theme.showSlot1) { drawSlot(dc, data, col1X, groupTopY, iconSize, valY, slot1); }
+        if (theme.showSlot2) { drawSlot(dc, data, col2X, groupTopY, iconSize, valY, slot2); }
+        if (theme.showSlot3) { drawSlot(dc, data, col3X, groupTopY, iconSize, valY, slot3); }
+        if (theme.showSlot4) { drawSlot(dc, data, col4X, groupTopY, iconSize, valY, slot4); }
 
         if (theme.currentStyle == Theme.THEME_LCD_SIEMENS) {
             try {

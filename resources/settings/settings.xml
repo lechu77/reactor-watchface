@@ -20,6 +20,25 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.showLeftBar" title="@Strings.setting_show_left_bar">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showRightBar" title="@Strings.setting_show_right_bar">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showSlot1" title="@Strings.setting_show_slot1">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showSlot2" title="@Strings.setting_show_slot2">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showSlot3" title="@Strings.setting_show_slot3">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showSlot4" title="@Strings.setting_show_slot4">
+        <settingConfig type="boolean" />
+    </setting>
+
     <!-- Side Flanks -->
     <setting propertyKey="@Properties.leftFlankSlot" title="@Strings.flank_left_label">
         <settingConfig type="list">

@@ -21,17 +21,19 @@ class FlankWidget {
         var leftMetric = theme.leftFlankSlot;
         var rightMetric = theme.rightFlankSlot;
         
-        // Left Flank
-        var leftVal = MetricSlot.getNumericValue(data, leftMetric);
-        var leftMin = MetricSlot.getGaugeMin(leftMetric);
-        var leftMax = MetricSlot.getGaugeMax(leftMetric);
-        drawGauge(dc, data, theme, leftX, leftMetric, leftVal, leftMin, leftMax);
+        if (theme.showLeftBar) {
+            var leftVal = MetricSlot.getNumericValue(data, leftMetric);
+            var leftMin = MetricSlot.getGaugeMin(leftMetric);
+            var leftMax = MetricSlot.getGaugeMax(leftMetric);
+            drawGauge(dc, data, theme, leftX, leftMetric, leftVal, leftMin, leftMax);
+        }
 
-        // Right Flank
-        var rightVal = MetricSlot.getNumericValue(data, rightMetric);
-        var rightMin = MetricSlot.getGaugeMin(rightMetric);
-        var rightMax = MetricSlot.getGaugeMax(rightMetric);
-        drawGauge(dc, data, theme, rightX, rightMetric, rightVal, rightMin, rightMax);
+        if (theme.showRightBar) {
+            var rightVal = MetricSlot.getNumericValue(data, rightMetric);
+            var rightMin = MetricSlot.getGaugeMin(rightMetric);
+            var rightMax = MetricSlot.getGaugeMax(rightMetric);
+            drawGauge(dc, data, theme, rightX, rightMetric, rightVal, rightMin, rightMax);
+        }
     }
 
     private function drawGauge(dc as Dc, data as DataProvider, theme as Theme.ThemeConfig, x as Number, metricId as Number, value as Number, minVal as Number, maxVal as Number) as Void {

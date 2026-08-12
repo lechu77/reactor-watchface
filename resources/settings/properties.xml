@@ -13,4 +13,10 @@
     <property id="themeStyle" type="number">0</property>
     <property id="showTopBattery" type="boolean">true</property>
     <property id="useAod" type="boolean">true</property>
+    <property id="showLeftBar" type="boolean">true</property>
+    <property id="showRightBar" type="boolean">true</property>
+    <property id="showSlot1" type="boolean">true</property>
+    <property id="showSlot2" type="boolean">true</property>
+    <property id="showSlot3" type="boolean">true</property>
+    <property id="showSlot4" type="boolean">true</property>
 </properties>

@@ -26,6 +26,12 @@ module Theme {
         public var isAod as Boolean = false;
         public var useAod as Boolean = true;
         public var showTopBattery as Boolean = true;
+        public var showLeftBar as Boolean = true;
+        public var showRightBar as Boolean = true;
+        public var showSlot1 as Boolean = true;
+        public var showSlot2 as Boolean = true;
+        public var showSlot3 as Boolean = true;
+        public var showSlot4 as Boolean = true;
         public var leftFlankSlot as Number = 4; // HeartRate
         public var rightFlankSlot as Number = 5; // Stress
 
@@ -47,6 +53,23 @@ module Theme {
                 if (sUseAod != null) {
                     useAod = sUseAod as Boolean;
                 }
+                var sLBar = Toybox.Application.Properties.getValue("showLeftBar");
+                if (sLBar != null) { showLeftBar = sLBar as Boolean; }
+                
+                var sRBar = Toybox.Application.Properties.getValue("showRightBar");
+                if (sRBar != null) { showRightBar = sRBar as Boolean; }
+                
+                var sS1 = Toybox.Application.Properties.getValue("showSlot1");
+                if (sS1 != null) { showSlot1 = sS1 as Boolean; }
+                
+                var sS2 = Toybox.Application.Properties.getValue("showSlot2");
+                if (sS2 != null) { showSlot2 = sS2 as Boolean; }
+                
+                var sS3 = Toybox.Application.Properties.getValue("showSlot3");
+                if (sS3 != null) { showSlot3 = sS3 as Boolean; }
+                
+                var sS4 = Toybox.Application.Properties.getValue("showSlot4");
+                if (sS4 != null) { showSlot4 = sS4 as Boolean; }
                 var leftF = Toybox.Application.Properties.getValue("leftFlankSlot");
                 if (leftF != null) {
                     leftFlankSlot = leftF as Number;

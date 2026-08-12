@@ -4,6 +4,13 @@
     <!-- Theme Settings -->
     <string id="setting_theme_style">Watchface Style</string>
     <string id="setting_show_top_battery">Show Top Battery</string>
+    <string id="setting_use_aod">Enable AOD (Always-On Display)</string>
+    <string id="setting_show_left_bar">Show Left Bar</string>
+    <string id="setting_show_right_bar">Show Right Bar</string>
+    <string id="setting_show_slot1">Show Slot 1</string>
+    <string id="setting_show_slot2">Show Slot 2</string>
+    <string id="setting_show_slot3">Show Slot 3</string>
+    <string id="setting_show_slot4">Show Slot 4</string>
     <string id="theme_nixie_cyan">VFD (Cyan)</string>
     <string id="theme_lcd_cyan">LCD (Cyan)</string>
     <string id="theme_lcd_green">LCD (Green Phosphor)</string>
