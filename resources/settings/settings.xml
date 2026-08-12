@@ -1,5 +1,5 @@
 <settings>
-    <!-- Theme Settings -->
+
     <setting propertyKey="@Properties.themeStyle" title="@Strings.setting_theme_style">
         <settingConfig type="list">
             <listEntry value="0">@Strings.theme_nixie_cyan</listEntry>
@@ -11,35 +11,22 @@
             <listEntry value="10">@Strings.theme_nixie_amber</listEntry>
         </settingConfig>
     </setting>
-    
-    <!-- Top Widget Settings -->
-    <setting propertyKey="@Properties.showTopBattery" title="@Strings.setting_show_top_battery">
-        <settingConfig type="boolean" />
-    </setting>
+
     <setting propertyKey="@Properties.useAod" title="@Strings.setting_use_aod">
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.showLeftBar" title="@Strings.setting_show_left_bar">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.showRightBar" title="@Strings.setting_show_right_bar">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.showSlot1" title="@Strings.setting_show_slot1">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.showSlot2" title="@Strings.setting_show_slot2">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.showSlot3" title="@Strings.setting_show_slot3">
-        <settingConfig type="boolean" />
-    </setting>
-    <setting propertyKey="@Properties.showSlot4" title="@Strings.setting_show_slot4">
+    <setting propertyKey="@Properties.showTopBattery" title="@Strings.setting_show_top_battery">
         <settingConfig type="boolean" />
     </setting>
 
-    <!-- Side Flanks -->
+    <setting propertyKey="@Properties.showTopCharts" title="@Strings.setting_show_top_charts">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.showLeftBar" title="@Strings.setting_show_left_bar">
+        <settingConfig type="boolean" />
+    </setting>
+
     <setting propertyKey="@Properties.leftFlankSlot" title="@Strings.flank_left_label">
         <settingConfig type="list">
             <listEntry value="4">@Strings.metric_heartrate</listEntry>
@@ -52,6 +39,11 @@
             <listEntry value="28">@Strings.metric_phone_battery</listEntry>
         </settingConfig>
     </setting>
+
+    <setting propertyKey="@Properties.showRightBar" title="@Strings.setting_show_right_bar">
+        <settingConfig type="boolean" />
+    </setting>
+
 
     <setting propertyKey="@Properties.rightFlankSlot" title="@Strings.flank_right_label">
         <settingConfig type="list">
@@ -66,7 +58,9 @@
         </settingConfig>
     </setting>
 
-    <!-- Slot 1 -->
+    <setting propertyKey="@Properties.showSlot1" title="@Strings.setting_show_slot1">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.bottomSlot1" title="@Strings.slot1_label">
         <settingConfig type="list">
             <listEntry value="8">@Strings.metric_time</listEntry>
@@ -102,7 +96,9 @@
         </settingConfig>
     </setting>
 
-    <!-- Slot 2 -->
+    <setting propertyKey="@Properties.showSlot2" title="@Strings.setting_show_slot2">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.bottomSlot2" title="@Strings.slot2_label">
         <settingConfig type="list">
             <listEntry value="8">@Strings.metric_time</listEntry>
@@ -138,7 +134,9 @@
         </settingConfig>
     </setting>
 
-    <!-- Slot 3 -->
+    <setting propertyKey="@Properties.showSlot3" title="@Strings.setting_show_slot3">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.bottomSlot3" title="@Strings.slot3_label">
         <settingConfig type="list">
             <listEntry value="8">@Strings.metric_time</listEntry>
@@ -174,7 +172,9 @@
         </settingConfig>
     </setting>
 
-    <!-- Slot 4 -->
+    <setting propertyKey="@Properties.showSlot4" title="@Strings.setting_show_slot4">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.bottomSlot4" title="@Strings.slot4_label">
         <settingConfig type="list">
             <listEntry value="8">@Strings.metric_time</listEntry>
@@ -209,4 +209,18 @@
             <listEntry value="7">@Strings.metric_seconds</listEntry>
         </settingConfig>
     </setting>
+
+    <!-- Theme Settings -->
+    
+    <!-- Top Widget Settings -->
+
+    <!-- Side Flanks -->
+
+    <!-- Slot 1 -->
+
+    <!-- Slot 2 -->
+
+    <!-- Slot 3 -->
+
+    <!-- Slot 4 -->
 </settings>

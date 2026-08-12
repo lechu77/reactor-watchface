@@ -25,13 +25,14 @@ module Theme {
         public var currentStyle as Style = THEME_NIXIE_CYAN;
         public var isAod as Boolean = false;
         public var useAod as Boolean = true;
-        public var showTopBattery as Boolean = true;
         public var showLeftBar as Boolean = true;
         public var showRightBar as Boolean = true;
+        public var showTopCharts as Boolean = true;
         public var showSlot1 as Boolean = true;
         public var showSlot2 as Boolean = true;
         public var showSlot3 as Boolean = true;
         public var showSlot4 as Boolean = true;
+        public var showTopBattery as Boolean = true;
         public var leftFlankSlot as Number = 4; // HeartRate
         public var rightFlankSlot as Number = 5; // Stress
 
@@ -59,6 +60,9 @@ module Theme {
                 var sRBar = Toybox.Application.Properties.getValue("showRightBar");
                 if (sRBar != null) { showRightBar = sRBar as Boolean; }
                 
+                var sTCharts = Toybox.Application.Properties.getValue("showTopCharts");
+                if (sTCharts != null) { showTopCharts = sTCharts as Boolean; }
+                
                 var sS1 = Toybox.Application.Properties.getValue("showSlot1");
                 if (sS1 != null) { showSlot1 = sS1 as Boolean; }
                 
@@ -70,6 +74,7 @@ module Theme {
                 
                 var sS4 = Toybox.Application.Properties.getValue("showSlot4");
                 if (sS4 != null) { showSlot4 = sS4 as Boolean; }
+                
                 var leftF = Toybox.Application.Properties.getValue("leftFlankSlot");
                 if (leftF != null) {
                     leftFlankSlot = leftF as Number;

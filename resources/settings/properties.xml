@@ -15,6 +15,7 @@
     <property id="useAod" type="boolean">true</property>
     <property id="showLeftBar" type="boolean">true</property>
     <property id="showRightBar" type="boolean">true</property>
+    <property id="showTopCharts" type="boolean">true</property>
     <property id="showSlot1" type="boolean">true</property>
     <property id="showSlot2" type="boolean">true</property>
     <property id="showSlot3" type="boolean">true</property>

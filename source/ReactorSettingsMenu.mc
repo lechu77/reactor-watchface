@@ -33,7 +33,16 @@ class ReactorSettingsMenu extends WatchUi.Menu2 {
         var styleLabel = WatchUi.loadResource(Rez.Strings.setting_theme_style) as String;
         addItem(new WatchUi.MenuItem(styleLabel, subLabel, :themeStyle, null));
 
-        // 2. Top Battery
+        // Enable AOD
+        var useAod = true;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("useAod");
+            if (val != null) { useAod = val as Boolean; }
+        }
+        var aodLabel = WatchUi.loadResource(Rez.Strings.setting_use_aod) as String;
+        addItem(new WatchUi.ToggleMenuItem(aodLabel, null, :useAod, useAod, null));
+
+        // Show Top Battery
         var showTopBatt = true;
         if (Toybox.Application has :Properties) {
             var val = Toybox.Application.Properties.getValue("showTopBattery");
@@ -42,7 +51,25 @@ class ReactorSettingsMenu extends WatchUi.Menu2 {
         var battLabel = WatchUi.loadResource(Rez.Strings.setting_show_top_battery) as String;
         addItem(new WatchUi.ToggleMenuItem(battLabel, null, :showTopBattery, showTopBatt, null));
 
-        // 3. Left Flank
+        // Show Top Charts
+        var showTopC = true;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("showTopCharts");
+            if (val != null) { showTopC = val as Boolean; }
+        }
+        var chartsLabel = WatchUi.loadResource(Rez.Strings.setting_show_top_charts) as String;
+        addItem(new WatchUi.ToggleMenuItem(chartsLabel, null, :showTopCharts, showTopC, null));
+
+        // Show Left Bar
+        var showLeftB = true;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("showLeftBar");
+            if (val != null) { showLeftB = val as Boolean; }
+        }
+        var leftBLabel = WatchUi.loadResource(Rez.Strings.setting_show_left_bar) as String;
+        addItem(new WatchUi.ToggleMenuItem(leftBLabel, null, :showLeftBar, showLeftB, null));
+
+        // Left Bar Metric
         var leftMetric = 4;
         if (Toybox.Application has :Properties) {
             var val = Toybox.Application.Properties.getValue("leftFlankSlot");
@@ -51,7 +78,16 @@ class ReactorSettingsMenu extends WatchUi.Menu2 {
         var leftLabel = WatchUi.loadResource(Rez.Strings.flank_left_label) as String;
         addItem(new WatchUi.MenuItem(leftLabel, getMetricName(leftMetric), :leftFlankSlot, null));
 
-        // 4. Right Flank
+        // Show Right Bar
+        var showRightB = true;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("showRightBar");
+            if (val != null) { showRightB = val as Boolean; }
+        }
+        var rightBLabel = WatchUi.loadResource(Rez.Strings.setting_show_right_bar) as String;
+        addItem(new WatchUi.ToggleMenuItem(rightBLabel, null, :showRightBar, showRightB, null));
+
+        // Right Bar Metric
         var rightMetric = 5;
         if (Toybox.Application has :Properties) {
             var val = Toybox.Application.Properties.getValue("rightFlankSlot");
@@ -60,23 +96,41 @@ class ReactorSettingsMenu extends WatchUi.Menu2 {
         var rightLabel = WatchUi.loadResource(Rez.Strings.flank_right_label) as String;
         addItem(new WatchUi.MenuItem(rightLabel, getMetricName(rightMetric), :rightFlankSlot, null));
 
-        // 5. Bottom Slots
+        // Bottom Slots
         var b1 = 0, b2 = 1, b3 = 2, b4 = 3;
+        var showS1 = true, showS2 = true, showS3 = true, showS4 = true;
         if (Toybox.Application has :Properties) {
             var v1 = Toybox.Application.Properties.getValue("bottomSlot1"); if(v1 != null) { b1 = v1 as Number; }
             var v2 = Toybox.Application.Properties.getValue("bottomSlot2"); if(v2 != null) { b2 = v2 as Number; }
             var v3 = Toybox.Application.Properties.getValue("bottomSlot3"); if(v3 != null) { b3 = v3 as Number; }
             var v4 = Toybox.Application.Properties.getValue("bottomSlot4"); if(v4 != null) { b4 = v4 as Number; }
+            
+            var sv1 = Toybox.Application.Properties.getValue("showSlot1"); if(sv1 != null) { showS1 = sv1 as Boolean; }
+            var sv2 = Toybox.Application.Properties.getValue("showSlot2"); if(sv2 != null) { showS2 = sv2 as Boolean; }
+            var sv3 = Toybox.Application.Properties.getValue("showSlot3"); if(sv3 != null) { showS3 = sv3 as Boolean; }
+            var sv4 = Toybox.Application.Properties.getValue("showSlot4"); if(sv4 != null) { showS4 = sv4 as Boolean; }
         }
         
         var s1L = WatchUi.loadResource(Rez.Strings.slot1_label) as String;
         var s2L = WatchUi.loadResource(Rez.Strings.slot2_label) as String;
         var s3L = WatchUi.loadResource(Rez.Strings.slot3_label) as String;
         var s4L = WatchUi.loadResource(Rez.Strings.slot4_label) as String;
+        
+        var tS1L = WatchUi.loadResource(Rez.Strings.setting_show_slot1) as String;
+        var tS2L = WatchUi.loadResource(Rez.Strings.setting_show_slot2) as String;
+        var tS3L = WatchUi.loadResource(Rez.Strings.setting_show_slot3) as String;
+        var tS4L = WatchUi.loadResource(Rez.Strings.setting_show_slot4) as String;
 
+        addItem(new WatchUi.ToggleMenuItem(tS1L, null, :showSlot1, showS1, null));
         addItem(new WatchUi.MenuItem(s1L, getMetricName(b1), :bottomSlot1, null));
+        
+        addItem(new WatchUi.ToggleMenuItem(tS2L, null, :showSlot2, showS2, null));
         addItem(new WatchUi.MenuItem(s2L, getMetricName(b2), :bottomSlot2, null));
+        
+        addItem(new WatchUi.ToggleMenuItem(tS3L, null, :showSlot3, showS3, null));
         addItem(new WatchUi.MenuItem(s3L, getMetricName(b3), :bottomSlot3, null));
+        
+        addItem(new WatchUi.ToggleMenuItem(tS4L, null, :showSlot4, showS4, null));
         addItem(new WatchUi.MenuItem(s4L, getMetricName(b4), :bottomSlot4, null));
     }
 }
@@ -129,10 +183,50 @@ class ReactorSettingsDelegate extends WatchUi.Menu2InputDelegate {
         var id = item.getId();
         if (id == :themeStyle) {
             WatchUi.pushView(new ThemePickerMenu(), new ThemePickerDelegate(), WatchUi.SLIDE_LEFT);
+        } else if (id == :useAod) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("useAod", toggleItem.isEnabled());
+            }
         } else if (id == :showTopBattery) {
             var toggleItem = item as WatchUi.ToggleMenuItem;
             if (Toybox.Application has :Properties) {
                 Toybox.Application.Properties.setValue("showTopBattery", toggleItem.isEnabled());
+            }
+        } else if (id == :showTopCharts) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showTopCharts", toggleItem.isEnabled());
+            }
+        } else if (id == :showLeftBar) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showLeftBar", toggleItem.isEnabled());
+            }
+        } else if (id == :showRightBar) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showRightBar", toggleItem.isEnabled());
+            }
+        } else if (id == :showSlot1) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showSlot1", toggleItem.isEnabled());
+            }
+        } else if (id == :showSlot2) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showSlot2", toggleItem.isEnabled());
+            }
+        } else if (id == :showSlot3) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showSlot3", toggleItem.isEnabled());
+            }
+        } else if (id == :showSlot4) {
+            var toggleItem = item as WatchUi.ToggleMenuItem;
+            if (Toybox.Application has :Properties) {
+                Toybox.Application.Properties.setValue("showSlot4", toggleItem.isEnabled());
             }
         } else if (id == :leftFlankSlot) {
             var title = WatchUi.loadResource(Rez.Strings.flank_left_label) as String;

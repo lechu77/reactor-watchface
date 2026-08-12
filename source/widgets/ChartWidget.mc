@@ -10,7 +10,7 @@ class ChartWidget {
     }
 
     function draw(dc as Dc, data as DataProvider, theme as Theme.ThemeConfig) as Void {
-        if (theme.isAod) {
+        if (theme.isAod || !theme.showTopCharts) {
             return;
         }
 
