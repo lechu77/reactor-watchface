@@ -81,9 +81,8 @@ class BottomMetricsWidget {
         }
 
         var valueStr = MetricSlot.getValue(data, metricId);
-        // dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
-        // dc.drawText(cx, valY, Graphics.FONT_TINY, valueStr, Graphics.TEXT_JUSTIFY_CENTER);
-        CompactFont.drawText(dc, cx, valY + 6, valueStr, 23, Theme.COLOR_ICONS, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, valY + 2, Graphics.FONT_XTINY, valueStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
     private function loadBitmap(metricId as Number) as WatchUi.BitmapResource? {
