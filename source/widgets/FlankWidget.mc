@@ -4,8 +4,7 @@ import Toybox.WatchUi;
 
 class FlankWidget {
 
-    // Cache loaded bitmaps
-    private var _bitmapCache as Dictionary<Number, WatchUi.BitmapResource> = {};
+    private var _iconFont as WatchUi.FontResource?;
 
     function initialize() {
     }
@@ -48,10 +47,10 @@ class FlankWidget {
 
         // 1. Vector Metric Icon (Moved slightly higher to match text gap visually)
         var iconY = 143; // Center Y = 143 (gives ~8px extra breathing room)
-        var bmp = loadBitmap(metricId);
-        if (bmp != null) {
-            dc.drawBitmap(x - 20, iconY - 20, bmp);
-        }
+        var iconChar = MetricSlot.getIconString(metricId);
+        var font = getIconFont();
+        dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, iconY, font, iconChar, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         // Calculate active segments count (0 to 10)
         var activeCount = 0;
@@ -109,17 +108,10 @@ class FlankWidget {
         return theme.getPrimaryColor();
     }
 
-    private function loadBitmap(metricId as Number) as WatchUi.BitmapResource? {
-        if (_bitmapCache.hasKey(metricId)) {
-            return _bitmapCache[metricId];
+    private function getIconFont() as WatchUi.FontResource {
+        if (_iconFont == null) {
+            _iconFont = WatchUi.loadResource(Rez.Fonts.MetricsIconsFont) as WatchUi.FontResource;
         }
-        try {
-            var resId = MetricSlot.getDrawableId(metricId);
-            var bmp = WatchUi.loadResource(resId) as WatchUi.BitmapResource;
-            _bitmapCache[metricId] = bmp;
-            return bmp;
-        } catch (e) {
-            return null;
-        }
+        return _iconFont;
     }
 }

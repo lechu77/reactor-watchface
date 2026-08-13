@@ -5,8 +5,7 @@ import Toybox.WatchUi;
 
 class BottomMetricsWidget {
 
-    // Cache loaded bitmaps (keyed by metric ID integer to avoid ResourceId issues)
-    private var _bitmapCache as Dictionary<Number, WatchUi.BitmapResource> = {};
+    private var _iconFont as WatchUi.FontResource?;
 
     function initialize() {
     }
@@ -72,29 +71,20 @@ class BottomMetricsWidget {
     }
 
     private function drawSlot(dc as Dc, data as DataProvider, cx as Number, iconTopY as Number, iconSize as Number, valY as Number, metricId as Number) as Void {
-        var bmp = loadBitmap(metricId);
-        if (bmp != null) {
-            var b = bmp as WatchUi.BitmapResource;
-            // Icons are 40×40px
-            dc.drawBitmap(cx - 20, iconTopY, b);
-        }
+        var iconChar = MetricSlot.getIconString(metricId);
+        var font = getIconFont();
+        dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(cx, iconTopY + 24, font, iconChar, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
         var valueStr = MetricSlot.getValue(data, metricId);
         dc.setColor(Theme.COLOR_ICONS, Graphics.COLOR_TRANSPARENT);
         dc.drawText(cx, valY + 2, Graphics.FONT_XTINY, valueStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
 
-    private function loadBitmap(metricId as Number) as WatchUi.BitmapResource? {
-        if (_bitmapCache.hasKey(metricId)) {
-            return _bitmapCache[metricId];
+    private function getIconFont() as WatchUi.FontResource {
+        if (_iconFont == null) {
+            _iconFont = WatchUi.loadResource(Rez.Fonts.MetricsIconsFont) as WatchUi.FontResource;
         }
-        try {
-            var resId = MetricSlot.getDrawableId(metricId);
-            var bmp = WatchUi.loadResource(resId) as WatchUi.BitmapResource;
-            _bitmapCache[metricId] = bmp;
-            return bmp;
-        } catch (e) {
-            return null;
-        }
+        return _iconFont;
     }
 }

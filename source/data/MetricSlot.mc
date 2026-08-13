@@ -35,39 +35,42 @@ module MetricSlot {
     const PHONE_BATTERY         = 28;
     const BLUETOOTH             = 29;
 
-    function getDrawableId(metricId as Number) as ResourceId {
-        if (metricId == STEPS)                 { return Rez.Drawables.IconSteps; }
-        if (metricId == DISTANCE)              { return Rez.Drawables.IconDistance; }
-        if (metricId == CALORIES)              { return Rez.Drawables.IconCalories; }
-        if (metricId == FLOORS)                { return Rez.Drawables.IconFloors; }
-        if (metricId == HEARTRATE)             { return Rez.Drawables.IconHeartRate; }
-        if (metricId == STRESS)                { return Rez.Drawables.IconStress; }
-        if (metricId == BATTERY)               { return Rez.Drawables.IconBattery; }
-        if (metricId == SECONDS)               { return Rez.Drawables.IconSeconds; }
-        if (metricId == TIME)                  { return Rez.Drawables.IconTime; }
-        if (metricId == DATE)                  { return Rez.Drawables.IconDate; }
-        if (metricId == BODY_BATTERY)          { return Rez.Drawables.IconBodyBattery; }
-        if (metricId == HRV)                   { return Rez.Drawables.IconHRV; }
-        if (metricId == RESTING_HR)            { return Rez.Drawables.IconRestingHR; }
-        if (metricId == PULSE_OX)              { return Rez.Drawables.IconPulseOx; }
-        if (metricId == TRAINING_READINESS)    { return Rez.Drawables.IconTrainingReadiness; }
-        if (metricId == RECOVERY_TIME)         { return Rez.Drawables.IconRecoveryTime; }
-        if (metricId == VO2_MAX)               { return Rez.Drawables.IconVO2Max; }
-        if (metricId == TRAINING_STATUS)       { return Rez.Drawables.IconTrainingStatus; }
-        if (metricId == ACUTE_LOAD)            { return Rez.Drawables.IconAcuteLoad; }
-        if (metricId == ENDURANCE_SCORE)       { return Rez.Drawables.IconEnduranceScore; }
-        if (metricId == HILL_SCORE)            { return Rez.Drawables.IconHillScore; }
-        if (metricId == INTENSITY_MINUTES)     { return Rez.Drawables.IconIntensityMinutes; }
-        if (metricId == ALTITUDE)              { return Rez.Drawables.IconAltitude; }
-        if (metricId == TEMPERATURE)           { return Rez.Drawables.IconTemperature; }
-        if (metricId == WEATHER)               { return Rez.Drawables.IconWeather; }
-        if (metricId == SUNRISE)               { return Rez.Drawables.IconSunrise; }
-        if (metricId == SUNSET)                { return Rez.Drawables.IconSunset; }
-        if (metricId == MOON_PHASE)            { return Rez.Drawables.IconMoonPhase; }
-        if (metricId == PHONE_BATTERY)         { return Rez.Drawables.IconPhoneBattery; }
-        if (metricId == BLUETOOTH)             { return Rez.Drawables.IconBluetooth; }
+
+
+    function getIconString(metricId as Number) as String {
+        var charCode = 0xE536; // fallback directions_walk
+        if (metricId == STEPS)                      { charCode = 0xE536; }
+        else if (metricId == DISTANCE)              { charCode = 0xE55F; }
+        else if (metricId == CALORIES)              { charCode = 0xEF55; }
+        else if (metricId == FLOORS)                { charCode = 0xF1A9; }
+        else if (metricId == HEARTRATE)             { charCode = 0xE87D; }
+        else if (metricId == STRESS)                { charCode = 0xEA0B; }
+        else if (metricId == BATTERY)               { charCode = 0xE1A4; }
+        else if (metricId == SECONDS)               { charCode = 0xE425; }
+        else if (metricId == TIME)                  { charCode = 0xE192; }
+        else if (metricId == DATE)                  { charCode = 0xE935; }
+        else if (metricId == BODY_BATTERY)          { charCode = 0xE1A3; }
+        else if (metricId == HRV)                   { charCode = 0xEAA2; }
+        else if (metricId == RESTING_HR)            { charCode = 0xEF44; }
+        else if (metricId == PULSE_OX)              { charCode = 0xEFE4; }
+        else if (metricId == TRAINING_READINESS)    { charCode = 0xF0CF; }
+        else if (metricId == RECOVERY_TIME)         { charCode = 0xE8B3; }
+        else if (metricId == VO2_MAX)               { charCode = 0xEFD8; }
+        else if (metricId == TRAINING_STATUS)       { charCode = 0xE8E5; }
+        else if (metricId == ACUTE_LOAD)            { charCode = 0xEB43; }
+        else if (metricId == ENDURANCE_SCORE)       { charCode = 0xE566; }
+        else if (metricId == HILL_SCORE)            { charCode = 0xE564; }
+        else if (metricId == INTENSITY_MINUTES)     { charCode = 0xE9E4; }
+        else if (metricId == ALTITUDE)              { charCode = 0xEA16; }
+        else if (metricId == TEMPERATURE)           { charCode = 0xF076; }
+        else if (metricId == WEATHER)               { charCode = 0xE2BD; }
+        else if (metricId == SUNRISE)               { charCode = 0xE1C6; }
+        else if (metricId == SUNSET)                { charCode = 0xEA46; }
+        else if (metricId == MOON_PHASE)            { charCode = 0xE51C; }
+        else if (metricId == PHONE_BATTERY)         { charCode = 0xE32C; }
+        else if (metricId == BLUETOOTH)             { charCode = 0xE1A7; }
         
-        return Rez.Drawables.IconSteps;
+        return charCode.toChar().toString();
     }
 
     function getValue(data as DataProvider, metricId as Number) as String {

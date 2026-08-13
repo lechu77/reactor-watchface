@@ -25,15 +25,16 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 - **Nixie tubes are sacred:** The VFD bitmap rendering path (`THEME_NIXIE_CYAN`) must never be modified or broken. The base bitmaps in `resources/drawables/vfd/` are the original Nixie tube art, and are processed via `scripts/process_nixie_images.py` to add a wire mesh, bloom, and unlit filament background to distinguish them from the LCD vectors.
 - **True Nixie Tube Mode:** Added `THEME_NIXIE_AMBER` (Theme 10) which uses a set of ultra-high-resolution Nixie digits cropped tight (120px top, 50px bottom removed before scaling) to 72x104, giving a highly authentic amber gas-discharge glow that fills the entire digit space.
 - **SegmentRenderer for LCD:** All non-Nixie themes use the procedural `SegmentRenderer` which draws 7-segment digits using filled polygons. Zero bitmaps, resolution-independent.
-- **CompactFont:** Custom procedural font for date windows and bottom metrics. Extended to support `0-9` and `%`. Uses rectangles and lines only — no curves.
+- **CompactFont:** Custom procedural font for date windows and bottom metrics. Extended to support `0-9`, `%` and all A-Z characters using rectangles and lines only — no curves.
+- **Metric Icons (BMFont):** All 30 configurable metric icons (steps, stress, floors, etc.) are rendered using a single `BMFont` atlas (`MetricsIconsFont`) generated from Material Design Outlined icons. This replaces 30+ individual PNGs, saving massive amounts of RAM and compilation time, while allowing dynamic `dc.setColor()` tinting.
 - **Battery font:** Reverted to system `Graphics.FONT_XTINY` because custom square vector fonts looked unnatural for standalone digits.
 - **Flank font:** Uses native `Graphics.FONT_XTINY` for numeric readouts — aligns well without being overly dominant.
 
 ## Memory Management
 
-- **Bitmap caching:** All icons in `FlankWidget` and `BottomMetricsWidget` are loaded once on first draw and cached in dictionaries. VFD digit bitmaps in `TimeWidget` are loaded once into arrays.
+- **BMFont Atlas:** All UI icons are packed into a single BMFont atlas (`metrics_icons.png`), eliminating the overhead of loading and caching `WatchUi.BitmapResource` objects.
 - **No allocations in draw loop:** Renderers reuse passed structures and primitives. No new objects are created during `onUpdate()`.
-- **Lazy loading:** VFD bitmaps (`_vfdDrawables`) are loaded on first use, not during `initialize()`.
+- **Lazy loading:** VFD bitmaps (`_vfdDrawables`) and the `MetricsIconsFont` are loaded on first use, not during `initialize()`.
 
 ## Theme System Evolution
 

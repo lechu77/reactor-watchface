@@ -1,3 +1,4 @@
 <fonts>
     <font id="VfdFont" filename="vfd_font.fnt" filter="0123456789:"/>
+    <font id="MetricsIconsFont" filename="metrics_icons.fnt" />
 </fonts>

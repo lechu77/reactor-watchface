@@ -1,0 +1,34 @@
+info face="icomoon" size=36 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=0,0,0,0 spacing=1,1 outline=0
+common lineHeight=36 base=36 scaleW=1200 scaleH=39 pages=1 packed=0 alphaChnl=1 redChnl=0 greenChnl=0 blueChnl=0
+page id=0 file="metrics_icons.png"
+chars count=30
+char id=58678 x=0 y=2 width=36 height=34 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58719 x=40 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61269 x=80 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61865 x=120 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59517 x=160 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59915 x=200 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=57764 x=240 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58405 x=280 y=2 width=36 height=35 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=57746 x=320 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59701 x=360 y=2 width=36 height=35 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=57763 x=400 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=60066 x=440 y=2 width=36 height=31 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61252 x=480 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61412 x=520 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61647 x=560 y=2 width=36 height=35 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59571 x=600 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61400 x=640 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59621 x=680 y=2 width=36 height=27 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=60227 x=720 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58726 x=760 y=2 width=36 height=34 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58724 x=800 y=2 width=36 height=27 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59876 x=840 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59926 x=880 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=61558 x=920 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58045 x=960 y=2 width=36 height=31 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=57798 x=1000 y=2 width=36 height=31 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=59974 x=1040 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58652 x=1080 y=2 width=36 height=32 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=58156 x=1120 y=2 width=36 height=35 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15
+char id=57767 x=1160 y=2 width=36 height=33 xoffset=0 yoffset=0 xadvance=38 page=0 chnl=15

@@ -71,8 +71,28 @@ module CompactFont {
             dc.fillRectangle(x, y, w, t);
             dc.fillRectangle(x, y + halfH - (t/2), w - t, t);
             dc.fillRectangle(x, y + h - t, w, t);
+        } else if (ch == 'F') {
+            dc.fillRectangle(x, y, t, h);
+            dc.fillRectangle(x, y, w, t);
+            dc.fillRectangle(x, y + halfH - (t/2), w - t, t);
+        } else if (ch == 'G') {
+            dc.fillRectangle(x, y, w, t);
+            dc.fillRectangle(x, y, t, h);
+            dc.fillRectangle(x, y + h - t, w, t);
+            dc.fillRectangle(x + w - t, y + halfH, t, halfH);
+            dc.fillRectangle(x + (w/2), y + halfH, w/2, t);
+        } else if (ch == 'H') {
+            dc.fillRectangle(x, y, t, h);
+            dc.fillRectangle(x + w - t, y, t, h);
+            dc.fillRectangle(x, y + halfH - (t/2), w, t);
         } else if (ch == 'I') {
             dc.fillRectangle(x + (w/2) - (t/2), y, t, h);
+        } else if (ch == 'K') {
+            dc.fillRectangle(x, y, t, h);
+            dc.drawLine(x + t, y + halfH, x + w, y);
+            dc.drawLine(x + t, y + halfH + 1, x + w, y + 1);
+            dc.drawLine(x + t, y + halfH, x + w, y + h);
+            dc.drawLine(x + t, y + halfH + 1, x + w, y + h - 1);
         } else if (ch == 'N') {
             dc.fillRectangle(x, y, t, h);
             dc.fillRectangle(x + w - t, y, t, h);
@@ -82,6 +102,10 @@ module CompactFont {
             dc.fillRectangle(x, y, w - t, t);
             dc.fillRectangle(x, y + h - t, w - t, t);
             dc.fillRectangle(x + w - t, y + t, t, h - (t*2));
+        } else if (ch == 'J') {
+            dc.fillRectangle(x + w - t, y, t, h);
+            dc.fillRectangle(x, y + h - t, w, t);
+            dc.fillRectangle(x, y + halfH, t, halfH);
         } else if (ch == 'L') {
             dc.fillRectangle(x, y, t, h);
             dc.fillRectangle(x, y + h - t, w, t);
@@ -92,11 +116,27 @@ module CompactFont {
         } else if (ch == 'V') {
             dc.drawLine(x, y, x + (w/2), y + h);
             dc.drawLine(x + (w/2), y + h, x + w, y);
+        } else if (ch == 'W') {
+            dc.fillRectangle(x, y, t, h);
+            dc.fillRectangle(x + w - t, y, t, h);
+            dc.fillPolygon([[x, y + h], [x + (w/2), y + halfH], [x + (w/2) + t, y + halfH], [x + t, y + h]]);
+            dc.fillPolygon([[x + w, y + h], [x + (w/2), y + halfH], [x + (w/2) - t, y + halfH], [x + w - t, y + h]]);
+        } else if (ch == 'X') {
+            dc.drawLine(x, y, x + w, y + h);
+            dc.drawLine(x + 1, y, x + w + 1, y + h);
+            dc.drawLine(x + w, y, x, y + h);
+            dc.drawLine(x + w - 1, y, x - 1, y + h);
         } else if (ch == 'P') {
             dc.fillRectangle(x, y, t, h);
             dc.fillRectangle(x, y, w, t);
             dc.fillRectangle(x, y + halfH, w, t);
             dc.fillRectangle(x + w - t, y, t, halfH);
+        } else if (ch == 'Q') {
+            dc.fillRectangle(x, y, w, t);
+            dc.fillRectangle(x, y, t, h);
+            dc.fillRectangle(x + w - t, y, t, h);
+            dc.fillRectangle(x, y + h - t, w, t);
+            dc.fillRectangle(x + w - (t*2), y + h - (t*2), t*2, t*2);
         } else if (ch == 'B') {
             dc.fillRectangle(x, y, t, h);
             dc.fillRectangle(x, y, w - t, t);
@@ -112,6 +152,16 @@ module CompactFont {
             dc.fillRectangle(x, y, w, t);
             dc.fillRectangle(x, y, t, h);
             dc.fillRectangle(x, y + h - t, w, t);
+        } else if (ch == 'Y') {
+            dc.fillRectangle(x, y, t, halfH);
+            dc.fillRectangle(x + w - t, y, t, h);
+            dc.fillRectangle(x, y + halfH - (t/2), w, t);
+            dc.fillRectangle(x, y + h - t, w, t);
+        } else if (ch == 'Z') {
+            dc.fillRectangle(x, y, w, t);
+            dc.fillRectangle(x, y + h - t, w, t);
+            dc.drawLine(x + w, y, x, y + h);
+            dc.drawLine(x + w - 1, y, x + 1, y + h);
         } else if (ch == 'T') {
             dc.fillRectangle(x, y, w, t);
             dc.fillRectangle(x + (w/2) - (t/2), y, t, h);
