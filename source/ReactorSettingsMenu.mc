@@ -60,6 +60,40 @@ class ReactorSettingsMenu extends WatchUi.Menu2 {
         var chartsLabel = WatchUi.loadResource(Rez.Strings.setting_show_top_charts) as String;
         addItem(new WatchUi.ToggleMenuItem(chartsLabel, null, :showTopCharts, showTopC, null));
 
+        // Top Chart Left
+        var topChartLeft = 4;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("topChartLeft");
+            if (val != null) { topChartLeft = val as Number; }
+        }
+        var topChartLeftLabel = WatchUi.loadResource(Rez.Strings.top_chart_left_label) as String;
+        addItem(new WatchUi.MenuItem(topChartLeftLabel, getMetricName(topChartLeft), :topChartLeft, null));
+
+        var topLeftChartType = 0;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("topLeftChartType");
+            if (val != null) { topLeftChartType = val as Number; }
+        }
+        var topLeftChartTypeLabel = WatchUi.loadResource(Rez.Strings.setting_top_left_chart_type) as String;
+        addItem(new WatchUi.MenuItem(topLeftChartTypeLabel, getChartStyleName(topLeftChartType), :topLeftChartType, null));
+
+        // Top Chart Right
+        var topChartRight = 10;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("topChartRight");
+            if (val != null) { topChartRight = val as Number; }
+        }
+        var topChartRightLabel = WatchUi.loadResource(Rez.Strings.top_chart_right_label) as String;
+        addItem(new WatchUi.MenuItem(topChartRightLabel, getMetricName(topChartRight), :topChartRight, null));
+
+        var topRightChartType = 0;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue("topRightChartType");
+            if (val != null) { topRightChartType = val as Number; }
+        }
+        var topRightChartTypeLabel = WatchUi.loadResource(Rez.Strings.setting_top_right_chart_type) as String;
+        addItem(new WatchUi.MenuItem(topRightChartTypeLabel, getChartStyleName(topRightChartType), :topRightChartType, null));
+
         // Show Left Bar
         var showLeftB = true;
         if (Toybox.Application has :Properties) {
@@ -168,6 +202,20 @@ function getMetricName(id as Number) as String {
         case 27: resId = Rez.Strings.metric_moon_phase; break;
         case 28: resId = Rez.Strings.metric_phone_battery; break;
         case 29: resId = Rez.Strings.metric_bluetooth; break;
+        case 30: resId = Rez.Strings.metric_pressure; break;
+        case 31: resId = Rez.Strings.metric_respiration; break;
+    }
+    return WatchUi.loadResource(resId) as String;
+}
+
+function getChartStyleName(id as Number) as String {
+    var resId = Rez.Strings.chart_style_solid;
+    switch(id) {
+        case 0: resId = Rez.Strings.chart_style_solid; break;
+        case 1: resId = Rez.Strings.chart_style_dot_matrix; break;
+        case 2: resId = Rez.Strings.chart_style_stepped; break;
+        case 3: resId = Rez.Strings.chart_style_oscilloscope; break;
+        case 4: resId = Rez.Strings.chart_style_lcd; break;
     }
     return WatchUi.loadResource(resId) as String;
 }
@@ -198,6 +246,18 @@ class ReactorSettingsDelegate extends WatchUi.Menu2InputDelegate {
             if (Toybox.Application has :Properties) {
                 Toybox.Application.Properties.setValue("showTopCharts", toggleItem.isEnabled());
             }
+        } else if (id == :topChartLeft) {
+            var title = WatchUi.loadResource(Rez.Strings.top_chart_left_label) as String;
+            WatchUi.pushView(new ChartMetricPickerMenu("topChartLeft", title), new MetricPickerDelegate("topChartLeft"), WatchUi.SLIDE_LEFT);
+        } else if (id == :topLeftChartType) {
+            var title = WatchUi.loadResource(Rez.Strings.setting_top_left_chart_type) as String;
+            WatchUi.pushView(new ChartStylePickerMenu("topLeftChartType", title), new MetricPickerDelegate("topLeftChartType"), WatchUi.SLIDE_LEFT);
+        } else if (id == :topChartRight) {
+            var title = WatchUi.loadResource(Rez.Strings.top_chart_right_label) as String;
+            WatchUi.pushView(new ChartMetricPickerMenu("topChartRight", title), new MetricPickerDelegate("topChartRight"), WatchUi.SLIDE_LEFT);
+        } else if (id == :topRightChartType) {
+            var title = WatchUi.loadResource(Rez.Strings.setting_top_right_chart_type) as String;
+            WatchUi.pushView(new ChartStylePickerMenu("topRightChartType", title), new MetricPickerDelegate("topRightChartType"), WatchUi.SLIDE_LEFT);
         } else if (id == :showLeftBar) {
             var toggleItem = item as WatchUi.ToggleMenuItem;
             if (Toybox.Application has :Properties) {
@@ -308,6 +368,46 @@ class MetricPickerMenu extends WatchUi.Menu2 {
         for (var i = 0; i < options.size(); i++) {
             var id = options[i] as Number;
             var label = getMetricName(id);
+            addItem(new WatchUi.ToggleMenuItem(label, null, id, currentVal == id, null));
+        }
+    }
+}
+
+// Sub-menu for Top Charts
+class ChartMetricPickerMenu extends WatchUi.Menu2 {
+    function initialize(propKey as String, menuTitle as String) {
+        Menu2.initialize({:title => menuTitle});
+        var currentVal = -1;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue(propKey);
+            if (val != null) { currentVal = val as Number; }
+        }
+        
+        var options = [ 4, 5, 10, 13, 22, 23, 30 ];
+
+        for (var i = 0; i < options.size(); i++) {
+            var id = options[i] as Number;
+            var label = getMetricName(id);
+            addItem(new WatchUi.ToggleMenuItem(label, null, id, currentVal == id, null));
+        }
+    }
+}
+
+// Sub-menu for Chart Styles
+class ChartStylePickerMenu extends WatchUi.Menu2 {
+    function initialize(propKey as String, menuTitle as String) {
+        Menu2.initialize({:title => menuTitle});
+        var currentVal = -1;
+        if (Toybox.Application has :Properties) {
+            var val = Toybox.Application.Properties.getValue(propKey);
+            if (val != null) { currentVal = val as Number; }
+        }
+        
+        var options = [ 0, 1, 2, 3, 4 ];
+
+        for (var i = 0; i < options.size(); i++) {
+            var id = options[i] as Number;
+            var label = getChartStyleName(id);
             addItem(new WatchUi.ToggleMenuItem(label, null, id, currentVal == id, null));
         }
     }

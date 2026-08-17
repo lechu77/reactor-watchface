@@ -23,6 +23,46 @@
     <setting propertyKey="@Properties.showTopCharts" title="@Strings.setting_show_top_charts">
         <settingConfig type="boolean" />
     </setting>
+    <setting propertyKey="@Properties.topChartLeft" title="@Strings.top_chart_left_label">
+        <settingConfig type="list">
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="30">@Strings.metric_pressure</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.topChartRight" title="@Strings.top_chart_right_label">
+        <settingConfig type="list">
+            <listEntry value="4">@Strings.metric_heartrate</listEntry>
+            <listEntry value="5">@Strings.metric_stress</listEntry>
+            <listEntry value="10">@Strings.metric_body_battery</listEntry>
+            <listEntry value="13">@Strings.metric_pulse_ox</listEntry>
+            <listEntry value="22">@Strings.metric_altitude</listEntry>
+            <listEntry value="23">@Strings.metric_temperature</listEntry>
+            <listEntry value="30">@Strings.metric_pressure</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.topLeftChartType" title="@Strings.setting_top_left_chart_type">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.chart_style_solid</listEntry>
+            <listEntry value="1">@Strings.chart_style_dot_matrix</listEntry>
+            <listEntry value="2">@Strings.chart_style_stepped</listEntry>
+            <listEntry value="3">@Strings.chart_style_oscilloscope</listEntry>
+            <listEntry value="4">@Strings.chart_style_lcd</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.topRightChartType" title="@Strings.setting_top_right_chart_type">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.chart_style_solid</listEntry>
+            <listEntry value="1">@Strings.chart_style_dot_matrix</listEntry>
+            <listEntry value="2">@Strings.chart_style_stepped</listEntry>
+            <listEntry value="3">@Strings.chart_style_oscilloscope</listEntry>
+            <listEntry value="4">@Strings.chart_style_lcd</listEntry>
+        </settingConfig>
+    </setting>
     <setting propertyKey="@Properties.showLeftBar" title="@Strings.setting_show_left_bar">
         <settingConfig type="boolean" />
     </setting>

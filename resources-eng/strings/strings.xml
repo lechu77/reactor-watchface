@@ -51,11 +51,23 @@
 
     <string id="flank_left_label">Left Bar</string>
     <string id="flank_right_label">Right Bar</string>
+    <string id="top_chart_left_label">Top Left Chart</string>
+    <string id="top_chart_right_label">Top Right Chart</string>
+    <string id="setting_top_left_chart_type">Top Left Style</string>
+    <string id="setting_top_right_chart_type">Top Right Style</string>
+
+    <string id="chart_style_solid">Solid</string>
+    <string id="chart_style_dot_matrix">Dot Matrix</string>
+    <string id="chart_style_stepped">Stepped Line</string>
+    <string id="chart_style_oscilloscope">Oscilloscope</string>
+    <string id="chart_style_lcd">LCD Outline</string>
 
     <!-- Outdoor -->
     <string id="metric_altitude">Altitude</string>
     <string id="metric_temperature">Temperature</string>
     <string id="metric_weather">Weather</string>
+    <string id="metric_pressure">Pressure</string>
+    <string id="metric_respiration">Respiration</string>
     <string id="metric_sunrise">Sunrise</string>
     <string id="metric_sunset">Sunset</string>
     <string id="metric_moon_phase">Moon Phase</string>

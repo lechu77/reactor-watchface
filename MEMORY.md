@@ -22,6 +22,8 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 ## Rendering Decisions
 
+- **Chart Styles:** The `ChartWidget` dynamically supports 5 drawing modes for historical data (Solid, Dot Matrix, Stepped Line, Oscilloscope, LCD Outline) without relying on bitmaps.
+- **SensorHistory Limitations:** `Toybox.SensorHistory` does not expose a `getRespirationRateHistory` method. Respiration rate is only available as a current reading in `Toybox.Sensor`, so it cannot be plotted on the historical charts. Atmospheric pressure was successfully added instead.
 - **Nixie tubes are sacred:** The VFD bitmap rendering path (`THEME_NIXIE_CYAN`) must never be modified or broken. The base bitmaps in `resources/drawables/vfd/` are the original Nixie tube art, and are processed via `scripts/process_nixie_images.py` to add a wire mesh, bloom, and unlit filament background to distinguish them from the LCD vectors.
 - **True Nixie Tube Mode:** Added `THEME_NIXIE_AMBER` (Theme 10) which uses a set of ultra-high-resolution Nixie digits cropped tight (120px top, 50px bottom removed before scaling) to 72x104, giving a highly authentic amber gas-discharge glow that fills the entire digit space.
 - **SegmentRenderer for LCD:** All non-Nixie themes use the procedural `SegmentRenderer` which draws 7-segment digits using filled polygons. Zero bitmaps, resolution-independent.

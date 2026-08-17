@@ -51,11 +51,23 @@
 
     <string id="flank_left_label">Barra Izquierda</string>
     <string id="flank_right_label">Barra Derecha</string>
+    <string id="top_chart_left_label">Gráfico Sup. Izquierdo</string>
+    <string id="top_chart_right_label">Gráfico Sup. Derecho</string>
+    <string id="setting_top_left_chart_type">Estilo Gráf. Izq.</string>
+    <string id="setting_top_right_chart_type">Estilo Gráf. Der.</string>
+
+    <string id="chart_style_solid">Sólido</string>
+    <string id="chart_style_dot_matrix">Matriz Puntos</string>
+    <string id="chart_style_stepped">Escalonado</string>
+    <string id="chart_style_oscilloscope">Osciloscopio</string>
+    <string id="chart_style_lcd">Bordes LCD</string>
 
     <!-- Outdoor -->
     <string id="metric_altitude">Altitud</string>
     <string id="metric_temperature">Temperatura</string>
     <string id="metric_weather">Clima</string>
+    <string id="metric_pressure">Presión Atmos.</string>
+    <string id="metric_respiration">Respiración</string>
     <string id="metric_sunrise">Amanecer</string>
     <string id="metric_sunset">Atardecer</string>
     <string id="metric_moon_phase">Fase Lunar</string>

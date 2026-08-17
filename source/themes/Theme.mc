@@ -35,6 +35,10 @@ module Theme {
         public var showTopBattery as Boolean = true;
         public var leftFlankSlot as Number = 4; // HeartRate
         public var rightFlankSlot as Number = 5; // Stress
+        public var topChartLeft as Number = 4; // HeartRate
+        public var topChartRight as Number = 10; // Body Battery
+        public var topLeftChartType as Number = 0; // Solid
+        public var topRightChartType as Number = 0; // Solid
 
         function initialize() {
             loadProperties();
@@ -83,6 +87,18 @@ module Theme {
                 if (rightF != null) {
                     rightFlankSlot = rightF as Number;
                 }
+                
+                var tcL = Toybox.Application.Properties.getValue("topChartLeft");
+                if (tcL != null) { topChartLeft = tcL as Number; }
+
+                var tcR = Toybox.Application.Properties.getValue("topChartRight");
+                if (tcR != null) { topChartRight = tcR as Number; }
+
+                var tlT = Toybox.Application.Properties.getValue("topLeftChartType");
+                if (tlT != null) { topLeftChartType = tlT as Number; }
+
+                var trT = Toybox.Application.Properties.getValue("topRightChartType");
+                if (trT != null) { topRightChartType = trT as Number; }
             }
         }
 

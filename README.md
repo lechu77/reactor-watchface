@@ -18,7 +18,8 @@
 - **LCD Segment Digits**: Vector-drawn 7-segment renderers as an alternative solid style.
 - **6 Color Themes**: VFD Cyan, LCD Cyan, Fósforo Verde, Ámbar, Blanco, Azul Siemens.
 - **Dynamic Flank Gauges**: 10-segment LED-style vertical gauges (Heart Rate, Stress, Battery, Steps, Floors, Intensity Minutes, Body Battery, Phone Battery).
-- **Dual Historical Charts**: Real-time bar charts showing Heart Rate and Body Battery trends.
+- **Dual Historical Charts**: Real-time bar charts showing Heart Rate, Body Battery, Stress, PulseOx, Altitude, Temperature, and Pressure trends.
+- **5 Chart Rendering Styles**: Customize the chart visuals independently with Solid, Dot Matrix, Stepped Line, Oscilloscope, or LCD Outline aesthetics.
 - **Custom Vector Typography**: `CompactFont`, an entirely procedural geometric font for date windows and metrics.
 - **Extremely Low Power**: Engineered with caching, layout isolation, and geometric primitive rendering for maximum AMOLED battery life.
 - **AOD Support**: Automatic dim mode when the screen enters Always-On Display.

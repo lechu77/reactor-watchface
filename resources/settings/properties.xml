@@ -9,6 +9,12 @@
     <property id="leftFlankSlot" type="number">4</property>
     <property id="rightFlankSlot" type="number">5</property>
 
+    <!-- Top Charts slots -->
+    <property id="topChartLeft" type="number">4</property>
+    <property id="topChartRight" type="number">10</property>
+    <property id="topLeftChartType" type="number">0</property>
+    <property id="topRightChartType" type="number">0</property>
+
     <!-- Style Settings -->
     <property id="themeStyle" type="number">0</property>
     <property id="showTopBattery" type="boolean">true</property>

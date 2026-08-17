@@ -32,6 +32,7 @@ ReactorApp → ReactorView → [HeaderWidget, ChartWidget, TimeWidget, FlankWidg
 - **Theme colors apply to:** TimeWidget digits + ChartWidget bars. Header, flanks, and bottom metrics stay fixed to maintain visual identity.
 - **Zero allocations in draw loop:** All bitmaps and resources are cached on first load. Renderers reuse primitives instead of creating new objects.
 - **Single theme setting:** `themeStyle` (0–5) replaces the old separate `digitStyle` + `themeColor` settings.
+- **Dynamic Chart Styles:** The top dual charts support 5 different independent rendering styles (Solid, Dot Matrix, Stepped Line, Oscilloscope, LCD Outline) rendered procedurally.
 
 ## Theme System
 
