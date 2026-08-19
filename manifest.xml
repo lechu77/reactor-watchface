@@ -8,7 +8,6 @@
             <iq:product id="fr965"/>
             <iq:product id="fr265"/>
             <iq:product id="fr265s"/>
-            <iq:product id="tactix7amoled"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="UserProfile"/>

@@ -74,7 +74,6 @@ Secondary targets (AMOLED only):
  
 - Epix Gen2 / Epix Pro Gen2 (42mm, 47mm)
 - Forerunner 265 / 965
-- Tactix 7 AMOLED
  
 ---
 
