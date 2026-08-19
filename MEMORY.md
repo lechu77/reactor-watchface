@@ -70,3 +70,7 @@ This file records hard-won lessons, quirks, and decisions that are easy to forge
 
 - If you sideloaded with OpenMTP manually, verify the file placed on the device is `reactor.prg` and that you copied it into the APPS/GARMIN path exposed by the MTP client.
 
+
+## Screen Support Strategy
+
+- **AMOLED Exclusive:** To ensure a premium experience, maintain the industrial/retro look, and prevent layout issues caused by absolute pixel coordinates, we exclusively target AMOLED devices (Fenix 8, Epix 2, Forerunner 265/965, Tactix 7 AMOLED). MIP devices (like Fenix 7, Enduro 3) are intentionally excluded to avoid dithering (64-color limit), missing anti-aliasing, and incorrect scaling of pixel-perfect designs.

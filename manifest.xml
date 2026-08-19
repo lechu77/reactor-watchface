@@ -2,6 +2,13 @@
     <iq:application id="7d3910c5-5d9c-482a-89a1-872f2e519213" type="watchface" name="@Strings.AppName" entry="ReactorApp" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="4.2.0" version="1.2.1">
         <iq:products>
             <iq:product id="fenix8pro47mm"/>
+            <iq:product id="epix2"/>
+            <iq:product id="epix2pro42mm"/>
+            <iq:product id="epix2pro47mm"/>
+            <iq:product id="fr965"/>
+            <iq:product id="fr265"/>
+            <iq:product id="fr265s"/>
+            <iq:product id="tactix7amoled"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="UserProfile"/>
